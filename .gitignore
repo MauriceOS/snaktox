@@ -18,9 +18,6 @@ out/
 .env.production.local
 .env.*.local
 
-# Configuration files
-.cursorrules
-
 # API Keys and Secrets
 *.key
 *.pem
@@ -127,11 +124,6 @@ models/
 test-results/
 playwright-report/
 test-results.xml
-
-# Documentation
-blueprint.md
-PROJECT_SOURCE_OF_TRUTH.md
-PROGRESS.md
 
 # Test files
 *.txt
