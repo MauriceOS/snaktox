@@ -243,4 +243,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-*Built with ❤️ by Maurice Osoro and the SnaKTox team for public health and safety.*
+© 2025 SnaKTox. All rights reserved. Medical data verified by WHO, CDC, and KEMRI.
