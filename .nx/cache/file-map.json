@@ -1,0 +1,3982 @@
+{
+  "version": "6.0",
+  "nxVersion": "17.3.2",
+  "deps": {
+    "@nx/eslint": "^17.0.0",
+    "@nx/jest": "^17.0.0",
+    "@nx/next": "^17.0.0",
+    "@nx/node": "^17.0.0",
+    "@nx/workspace": "^17.0.0",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.19.23",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.0",
+    "jest": "^29.5.0",
+    "lint-staged": "^15.0.0",
+    "nx": "^17.0.0",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "@snaktox/web": [
+        {
+          "file": "apps/web/.next/app-build-manifest.json",
+          "hash": "2887817729147833271"
+        },
+        {
+          "file": "apps/web/.next/build-manifest.json",
+          "hash": "4022198718087905130"
+        },
+        {
+          "file": "apps/web/.next/cache/.tsbuildinfo",
+          "hash": "10477366934967042164"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development-fallback/0.pack.gz",
+          "hash": "16526496113536082413"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development-fallback/index.pack.gz",
+          "hash": "7240825057653727837"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development-fallback/index.pack.gz.old",
+          "hash": "17685299749325098082"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/0.pack.gz",
+          "hash": "12126937042603032997"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/1.pack.gz",
+          "hash": "5334051204433943987"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/10.pack.gz",
+          "hash": "9293794538049052351"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/11.pack.gz",
+          "hash": "11946380974017780206"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/12.pack.gz",
+          "hash": "16710891086256820093"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/13.pack.gz",
+          "hash": "588190420051588269"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/14.pack.gz",
+          "hash": "8718347412891849595"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/15.pack.gz",
+          "hash": "12067434511805089194"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/16.pack.gz",
+          "hash": "15384890890464803916"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/17.pack.gz",
+          "hash": "13557438827757535812"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/2.pack.gz",
+          "hash": "17658007304761936847"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/3.pack.gz",
+          "hash": "5071183198608049940"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/4.pack.gz",
+          "hash": "17784997690078636426"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/5.pack.gz",
+          "hash": "10503794340882089358"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/6.pack.gz",
+          "hash": "17733668471790527969"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/7.pack.gz",
+          "hash": "3129399399559055476"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/8.pack.gz",
+          "hash": "17742995588074877582"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/9.pack.gz",
+          "hash": "16982336106783428333"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/index.pack.gz",
+          "hash": "2695062340391005930"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-development/index.pack.gz.old",
+          "hash": "3983164178326580078"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-production/0.pack",
+          "hash": "3002302774785107293"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-production/1.pack",
+          "hash": "6381425838071919153"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-production/2.pack",
+          "hash": "1303830080021904860"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-production/index.pack",
+          "hash": "6900358240862601711"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/client-production/index.pack.old",
+          "hash": "10645917833627507260"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/edge-server-production/0.pack",
+          "hash": "11660940500592675580"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/edge-server-production/index.pack",
+          "hash": "13181637982930525758"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/0.pack.gz",
+          "hash": "17520748297670579826"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/1.pack.gz",
+          "hash": "9313543019828091171"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/10.pack.gz",
+          "hash": "3394823384860400006"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/11.pack.gz",
+          "hash": "1809744298676061754"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/12.pack.gz",
+          "hash": "5702312795369705095"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/13.pack.gz",
+          "hash": "8030948517876559494"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/14.pack.gz",
+          "hash": "7982866385839353613"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/15.pack.gz",
+          "hash": "3417040193618582673"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/16.pack.gz",
+          "hash": "16049184616267208723"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/17.pack.gz",
+          "hash": "9726402743578221443"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/2.pack.gz",
+          "hash": "16759119090465009786"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/3.pack.gz",
+          "hash": "15019040608263807247"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/4.pack.gz",
+          "hash": "15254531653404263633"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/5.pack.gz",
+          "hash": "17362667045131517738"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/6.pack.gz",
+          "hash": "15035085947991008017"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/7.pack.gz",
+          "hash": "7249925431367425217"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/8.pack.gz",
+          "hash": "9668986818981139365"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/9.pack.gz",
+          "hash": "10621261246677519429"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/index.pack.gz",
+          "hash": "6762461452815202433"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-development/index.pack.gz.old",
+          "hash": "15979745735154042107"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-production/0.pack",
+          "hash": "12961619723281627222"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-production/1.pack",
+          "hash": "15852553707168552172"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-production/index.pack",
+          "hash": "5211797419322123381"
+        },
+        {
+          "file": "apps/web/.next/cache/webpack/server-production/index.pack.old",
+          "hash": "17131596208350095348"
+        },
+        {
+          "file": "apps/web/.next/package.json",
+          "hash": "11338307439248427064"
+        },
+        {
+          "file": "apps/web/.next/react-loadable-manifest.json",
+          "hash": "1389868326933519382"
+        },
+        {
+          "file": "apps/web/.next/server/app-paths-manifest.json",
+          "hash": "3801231896237502933"
+        },
+        {
+          "file": "apps/web/.next/server/app/_not-found/page.js",
+          "hash": "5344348962095855287",
+          "deps": [
+            [
+              "npm:next/dist/client/components/action-async-storage.external.js",
+              "dynamic"
+            ],
+            [
+              "npm:next/dist/client/components/request-async-storage.external.js",
+              "dynamic"
+            ],
+            [
+              "npm:next/dist/client/components/static-generation-async-storage.external.js",
+              "dynamic"
+            ],
+            [
+              "npm:next/dist/compiled/next-server/app-page.runtime.dev.js",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/web/.next/server/app/_not-found/page_client-reference-manifest.js",
+          "hash": "636180451513944526"
+        },
+        {
+          "file": "apps/web/.next/server/app/emergency/hospitals/page.js",
+          "hash": "16797958970211901506",
+          "deps": [
+            [
+              "npm:next/dist/client/components/action-async-storage.external.js",
+              "dynamic"
+            ],
+            [
+              "npm:next/dist/client/components/request-async-storage.external.js",
+              "dynamic"
+            ],
+            [
+              "npm:next/dist/client/components/static-generation-async-storage.external.js",
+              "dynamic"
+            ],
+            [
+              "npm:next/dist/compiled/next-server/app-page.runtime.dev.js",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/web/.next/server/app/emergency/hospitals/page_client-reference-manifest.js",
+          "hash": "8989921583027879495"
+        },
+        {
+          "file": "apps/web/.next/server/app/page.js",
+          "hash": "12360515973044234939",
+          "deps": [
+            [
+              "npm:next/dist/client/components/action-async-storage.external.js",
+              "dynamic"
+            ],
+            [
+              "npm:next/dist/client/components/request-async-storage.external.js",
+              "dynamic"
+            ],
+            [
+              "npm:next/dist/client/components/static-generation-async-storage.external.js",
+              "dynamic"
+            ],
+            [
+              "npm:next/dist/compiled/next-server/app-page.runtime.dev.js",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/web/.next/server/app/page_client-reference-manifest.js",
+          "hash": "8967687875402226378"
+        },
+        {
+          "file": "apps/web/.next/server/interception-route-rewrite-manifest.js",
+          "hash": "10484309360224763022"
+        },
+        {
+          "file": "apps/web/.next/server/middleware-build-manifest.js",
+          "hash": "8129127502097255315"
+        },
+        {
+          "file": "apps/web/.next/server/middleware-manifest.json",
+          "hash": "9889576824779923310"
+        },
+        {
+          "file": "apps/web/.next/server/middleware-react-loadable-manifest.js",
+          "hash": "9185069726031651908"
+        },
+        {
+          "file": "apps/web/.next/server/next-font-manifest.js",
+          "hash": "16912126217155220032"
+        },
+        {
+          "file": "apps/web/.next/server/next-font-manifest.json",
+          "hash": "13998000161416589713"
+        },
+        {
+          "file": "apps/web/.next/server/pages-manifest.json",
+          "hash": "1389868326933519382"
+        },
+        {
+          "file": "apps/web/.next/server/server-reference-manifest.js",
+          "hash": "13062913855343812063"
+        },
+        {
+          "file": "apps/web/.next/server/server-reference-manifest.json",
+          "hash": "12167482184395509782"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/@babel.js",
+          "hash": "2726231903950017722"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/@radix-ui.js",
+          "hash": "18096589827291861568"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/@swc.js",
+          "hash": "17090511503258043421"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/aria-hidden.js",
+          "hash": "13283876493732859808"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/class-variance-authority.js",
+          "hash": "8957335333086701746"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/clsx.js",
+          "hash": "3939028838952655494"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/get-nonce.js",
+          "hash": "4666185004992295013"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/goober.js",
+          "hash": "14089446047481608437"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/lucide-react.js",
+          "hash": "7001512595601566664"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/next-themes.js",
+          "hash": "6210157394861170356"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/next.js",
+          "hash": "383955130895341837"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/react-hot-toast.js",
+          "hash": "12243977972418506698"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/react-query.js",
+          "hash": "11275381491039658154"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/react-remove-scroll-bar.js",
+          "hash": "2892264636589234384"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/react-remove-scroll.js",
+          "hash": "5432599868319593551"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/react-style-singleton.js",
+          "hash": "242522346899980908"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/tailwind-merge.js",
+          "hash": "6600866272247904615"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/tslib.js",
+          "hash": "10155336745598138426"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/use-callback-ref.js",
+          "hash": "9051629585032903272"
+        },
+        {
+          "file": "apps/web/.next/server/vendor-chunks/use-sidecar.js",
+          "hash": "2208157220355230486"
+        },
+        {
+          "file": "apps/web/.next/server/webpack-runtime.js",
+          "hash": "8002743067846388133"
+        },
+        {
+          "file": "apps/web/.next/static/chunks/app-pages-internals.js",
+          "hash": "16762850699068389527"
+        },
+        {
+          "file": "apps/web/.next/static/chunks/app/_not-found/page.js",
+          "hash": "11827880040908075020"
+        },
+        {
+          "file": "apps/web/.next/static/chunks/app/emergency/hospitals/page.js",
+          "hash": "14709412005495727775"
+        },
+        {
+          "file": "apps/web/.next/static/chunks/app/layout.js",
+          "hash": "6668329003463956017"
+        },
+        {
+          "file": "apps/web/.next/static/chunks/app/page.js",
+          "hash": "16831817101445163004"
+        },
+        {
+          "file": "apps/web/.next/static/chunks/main-app.js",
+          "hash": "17386938788505814576"
+        },
+        {
+          "file": "apps/web/.next/static/chunks/polyfills.js",
+          "hash": "8152964857117933876"
+        },
+        {
+          "file": "apps/web/.next/static/chunks/webpack.js",
+          "hash": "7683320797261143486"
+        },
+        {
+          "file": "apps/web/.next/static/css/app/layout.css",
+          "hash": "16851061112411699059"
+        },
+        {
+          "file": "apps/web/.next/static/development/_buildManifest.js",
+          "hash": "14524243513016396618"
+        },
+        {
+          "file": "apps/web/.next/static/development/_ssgManifest.js",
+          "hash": "17018243955171961484"
+        },
+        {
+          "file": "apps/web/.next/static/media/19cfc7226ec3afaa-s.woff2",
+          "hash": "932990173183815504"
+        },
+        {
+          "file": "apps/web/.next/static/media/21350d82a1f187e9-s.woff2",
+          "hash": "7353764345010092729"
+        },
+        {
+          "file": "apps/web/.next/static/media/8e9860b6e62d6359-s.woff2",
+          "hash": "6250587600893442431"
+        },
+        {
+          "file": "apps/web/.next/static/media/ba9851c3c22cd980-s.woff2",
+          "hash": "15010700856333334441"
+        },
+        {
+          "file": "apps/web/.next/static/media/c5fe6dc8356a8c31-s.woff2",
+          "hash": "5671755480058202880"
+        },
+        {
+          "file": "apps/web/.next/static/media/df0a9ae256c0569c-s.woff2",
+          "hash": "13559920167712985880"
+        },
+        {
+          "file": "apps/web/.next/static/media/e4af272ccee01ff0-s.p.woff2",
+          "hash": "17280332816367325500"
+        },
+        {
+          "file": "apps/web/.next/static/webpack/16dc176f5fe38120.webpack.hot-update.json",
+          "hash": "720712242173307049"
+        },
+        {
+          "file": "apps/web/.next/static/webpack/633457081244afec._.hot-update.json",
+          "hash": "10481436618516908015"
+        },
+        {
+          "file": "apps/web/.next/static/webpack/6ef7b5945dcc6822.webpack.hot-update.json",
+          "hash": "13405125561290911638"
+        },
+        {
+          "file": "apps/web/.next/static/webpack/app/layout.e2a204196a999101.hot-update.js",
+          "hash": "18074008279746063956"
+        },
+        {
+          "file": "apps/web/.next/static/webpack/e2a204196a999101.webpack.hot-update.json",
+          "hash": "8773209185785337189"
+        },
+        {
+          "file": "apps/web/.next/static/webpack/webpack.16dc176f5fe38120.hot-update.js",
+          "hash": "14729477392432813047"
+        },
+        {
+          "file": "apps/web/.next/static/webpack/webpack.6ef7b5945dcc6822.hot-update.js",
+          "hash": "359742307374746358"
+        },
+        {
+          "file": "apps/web/.next/static/webpack/webpack.e2a204196a999101.hot-update.js",
+          "hash": "10890312616896435849"
+        },
+        {
+          "file": "apps/web/.next/trace",
+          "hash": "17452220442114579078"
+        },
+        {
+          "file": "apps/web/.next/types/app/emergency/hospitals/page.ts",
+          "hash": "9201399175618543294",
+          "deps": [
+            "npm:next/dist/lib/metadata/types/metadata-interface.js"
+          ]
+        },
+        {
+          "file": "apps/web/.next/types/app/layout.ts",
+          "hash": "9138573457167863546",
+          "deps": [
+            "npm:next/dist/lib/metadata/types/metadata-interface.js"
+          ]
+        },
+        {
+          "file": "apps/web/.next/types/app/page.ts",
+          "hash": "11903465699159260169",
+          "deps": [
+            "npm:next/dist/lib/metadata/types/metadata-interface.js"
+          ]
+        },
+        {
+          "file": "apps/web/.next/types/package.json",
+          "hash": "6094546126370684104"
+        },
+        {
+          "file": "apps/web/Dockerfile",
+          "hash": "18344824284360023560"
+        },
+        {
+          "file": "apps/web/components.json",
+          "hash": "5882658732827366294"
+        },
+        {
+          "file": "apps/web/next-env.d.ts",
+          "hash": "2029974507243581618"
+        },
+        {
+          "file": "apps/web/next.config.js",
+          "hash": "5710574392465558441"
+        },
+        {
+          "file": "apps/web/package.json",
+          "hash": "14343638162125135388"
+        },
+        {
+          "file": "apps/web/postcss.config.js",
+          "hash": "1579725330904862112"
+        },
+        {
+          "file": "apps/web/src/app/about/page.tsx",
+          "hash": "15987295092773494565",
+          "deps": [
+            "npm:@/components/ui/button",
+            "npm:@/components/ui/card",
+            "npm:@/components/ui/badge",
+            "npm:next/link",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "apps/web/src/app/education/page.tsx",
+          "hash": "15534560822273551991",
+          "deps": [
+            "npm:react",
+            "npm:@/components/ui/button",
+            "npm:@/components/ui/card",
+            "npm:@/components/ui/badge",
+            "npm:@/components/emergency-header",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "apps/web/src/app/emergency/hospitals/page.tsx",
+          "hash": "12706965334446735192",
+          "deps": [
+            "npm:react",
+            "npm:@/components/ui/button",
+            "npm:@/components/ui/card",
+            "npm:@/components/ui/badge",
+            "npm:@/components/ui/input",
+            "npm:@/components/emergency-header",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "apps/web/src/app/emergency/identify/page.tsx",
+          "hash": "10483200600066237288",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:@/components/ui/button",
+            "npm:@/components/ui/card",
+            "npm:@/components/ui/badge",
+            "npm:@/components/ui/progress",
+            "npm:@/components/emergency-header"
+          ]
+        },
+        {
+          "file": "apps/web/src/app/emergency/page.tsx",
+          "hash": "9426074782291948713",
+          "deps": [
+            "npm:next/link",
+            "npm:@/components/ui/button",
+            "npm:@/components/ui/card",
+            "npm:@/components/emergency-header",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "apps/web/src/app/globals.css",
+          "hash": "7725797129593171374"
+        },
+        {
+          "file": "apps/web/src/app/layout.tsx",
+          "hash": "16007855674251459056",
+          "deps": [
+            "npm:next",
+            "npm:next/font/google",
+            "npm:react-hot-toast",
+            "npm:react-query"
+          ]
+        },
+        {
+          "file": "apps/web/src/app/page.tsx",
+          "hash": "16404495506220286448",
+          "deps": [
+            "npm:@/components/hero",
+            "npm:@/components/features",
+            "npm:@/components/navigation",
+            "npm:@/components/emergency-cta",
+            "npm:@/components/footer"
+          ]
+        },
+        {
+          "file": "apps/web/src/app/test.tsx",
+          "hash": "17585700548072086214"
+        },
+        {
+          "file": "apps/web/src/components/client-provider.tsx",
+          "hash": "4443568709456271040",
+          "deps": [
+            "npm:react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/emergency-cta.tsx",
+          "hash": "18436496468336631447",
+          "deps": [
+            "npm:next/link",
+            "npm:@/components/ui/button",
+            "npm:@/components/ui/card",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/emergency-header.tsx",
+          "hash": "2907302939732930247",
+          "deps": [
+            "npm:react",
+            "npm:next/link",
+            "npm:lucide-react",
+            "npm:@/components/ui/button",
+            "npm:@/components/theme-switcher",
+            "npm:@/components/ui/breadcrumb"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/features.tsx",
+          "hash": "8854776151620892215",
+          "deps": [
+            "npm:@/components/ui/card",
+            "npm:@/components/ui/badge",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/footer.tsx",
+          "hash": "8999250202128119787",
+          "deps": [
+            "npm:next/link",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/hero.tsx",
+          "hash": "10919917506110263220",
+          "deps": [
+            "npm:@/components/ui/button",
+            "npm:@/components/ui/card",
+            "npm:@/components/ui/badge",
+            "npm:lucide-react",
+            "npm:next/link"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/navigation.tsx",
+          "hash": "5676699865036279880",
+          "deps": [
+            "npm:react",
+            "npm:next/link",
+            "npm:next/navigation",
+            "npm:@/components/ui/button",
+            "npm:@/components/ui/sheet",
+            "npm:lucide-react",
+            "npm:@/components/theme-switcher",
+            "npm:@/lib/utils"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/theme-provider.tsx",
+          "hash": "15835416949186719454",
+          "deps": [
+            "npm:react",
+            "npm:next-themes"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/theme-switcher.tsx",
+          "hash": "1172935970202844369",
+          "deps": [
+            "npm:react",
+            "npm:@/components/ui/button",
+            "npm:lucide-react",
+            "npm:next-themes"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/ui/badge.tsx",
+          "hash": "9820710507085213727",
+          "deps": [
+            "npm:react",
+            "npm:class-variance-authority",
+            "npm:@/lib/utils"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/ui/breadcrumb.tsx",
+          "hash": "6975252232575265209",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:@/lib/utils"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/ui/button.tsx",
+          "hash": "9267699881977892517",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-slot",
+            "npm:class-variance-authority",
+            "npm:@/lib/utils"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/ui/card.tsx",
+          "hash": "10705375868451136261",
+          "deps": [
+            "npm:react",
+            "npm:@/lib/utils"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/ui/input.tsx",
+          "hash": "10270228290145902228",
+          "deps": [
+            "npm:react",
+            "npm:@/lib/utils"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/ui/progress.tsx",
+          "hash": "17647409214643394547",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-progress",
+            "npm:@/lib/utils"
+          ]
+        },
+        {
+          "file": "apps/web/src/components/ui/sheet.tsx",
+          "hash": "16939179561819926374",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-dialog",
+            "npm:class-variance-authority",
+            "npm:lucide-react",
+            "npm:@/lib/utils"
+          ]
+        },
+        {
+          "file": "apps/web/src/lib/utils.ts",
+          "hash": "6483145186850064023",
+          "deps": [
+            "npm:clsx",
+            "npm:tailwind-merge"
+          ]
+        },
+        {
+          "file": "apps/web/tailwind.config.js",
+          "hash": "4015932561118601704",
+          "deps": [
+            "npm:tailwindcss-animate"
+          ]
+        },
+        {
+          "file": "apps/web/tsconfig.json",
+          "hash": "2384574745332988076"
+        }
+      ],
+      "@snaktox/backend": [
+        {
+          "file": "apps/backend/Dockerfile",
+          "hash": "18223434767081448819"
+        },
+        {
+          "file": "apps/backend/Dockerfile.backup",
+          "hash": "11948410772688592194"
+        },
+        {
+          "file": "apps/backend/dist/src/app.module.d.ts",
+          "hash": "10127694934788833983"
+        },
+        {
+          "file": "apps/backend/dist/src/app.module.js",
+          "hash": "4897264656761549440",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/throttler"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/app.module.js.map",
+          "hash": "9470654005116597232"
+        },
+        {
+          "file": "apps/backend/dist/src/common/logger/logger.module.d.ts",
+          "hash": "3796848647848084132"
+        },
+        {
+          "file": "apps/backend/dist/src/common/logger/logger.module.js",
+          "hash": "6467371880829059483",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/common/logger/logger.module.js.map",
+          "hash": "13648314757064162388"
+        },
+        {
+          "file": "apps/backend/dist/src/common/logger/logger.service.d.ts",
+          "hash": "10110955779341436192",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/common/logger/logger.service.js",
+          "hash": "10479389475272802841",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:winston"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/common/logger/logger.service.js.map",
+          "hash": "12608565103586065837"
+        },
+        {
+          "file": "apps/backend/dist/src/common/prisma/prisma.module.d.ts",
+          "hash": "11576682696504724201"
+        },
+        {
+          "file": "apps/backend/dist/src/common/prisma/prisma.module.js",
+          "hash": "16872083805522576277",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/common/prisma/prisma.module.js.map",
+          "hash": "5583015451065459272"
+        },
+        {
+          "file": "apps/backend/dist/src/common/prisma/prisma.service.d.ts",
+          "hash": "15794152291497392129",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@prisma/client"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/common/prisma/prisma.service.js",
+          "hash": "6218814621334004215",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@prisma/client"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/common/prisma/prisma.service.js.map",
+          "hash": "7877099551059565997"
+        },
+        {
+          "file": "apps/backend/dist/src/main.d.ts",
+          "hash": "4595979742548113990"
+        },
+        {
+          "file": "apps/backend/dist/src/main.js",
+          "hash": "7246391040808051452",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger",
+            "npm:@nestjs/config",
+            "npm:helmet",
+            "npm:compression"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/main.js.map",
+          "hash": "6546340544821281687"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/ai.controller.d.ts",
+          "hash": "8457045771151906890"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/ai.controller.js",
+          "hash": "2723518700198500208",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/ai.controller.js.map",
+          "hash": "13612401551773533405"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/ai.module.d.ts",
+          "hash": "7691607950388452667"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/ai.module.js",
+          "hash": "381624564712678823",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/axios",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/ai.module.js.map",
+          "hash": "15603147023044501076"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/ai.service.d.ts",
+          "hash": "9726722608424689789",
+          "deps": [
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/ai.service.js",
+          "hash": "15794872565060062489",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios",
+            "npm:rxjs/operators"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/ai.service.js.map",
+          "hash": "17902463706945140894"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/dto/chatbot-query.dto.d.ts",
+          "hash": "6983709256771158068"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/dto/chatbot-query.dto.js",
+          "hash": "11368410965454132802",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/dto/chatbot-query.dto.js.map",
+          "hash": "317585119502919950"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/dto/snake-detection.dto.d.ts",
+          "hash": "11526000609409427081"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/dto/snake-detection.dto.js",
+          "hash": "5210908690670754087",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/ai/dto/snake-detection.dto.js.map",
+          "hash": "6469860145385327779"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/analytics.controller.d.ts",
+          "hash": "10247422237499536315"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/analytics.controller.js",
+          "hash": "18350921779747369017",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/analytics.controller.js.map",
+          "hash": "11967535654132978805"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/analytics.module.d.ts",
+          "hash": "5809272851036821869"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/analytics.module.js",
+          "hash": "1375452963338813993",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/analytics.module.js.map",
+          "hash": "13109498627477868413"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/analytics.service.d.ts",
+          "hash": "7817994477216271524"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/analytics.service.js",
+          "hash": "8343592730792152416",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/analytics.service.js.map",
+          "hash": "14605035333029512674"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/dto/create-analytics-log.dto.d.ts",
+          "hash": "8949675516601378032"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/dto/create-analytics-log.dto.js",
+          "hash": "15783849542266042317",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/dto/create-analytics-log.dto.js.map",
+          "hash": "12220778392837253619"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/dto/get-analytics.dto.d.ts",
+          "hash": "11439453653561592764"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/dto/get-analytics.dto.js",
+          "hash": "576837686173153243",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/analytics/dto/get-analytics.dto.js.map",
+          "hash": "3401964571178824023"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/auth.controller.d.ts",
+          "hash": "2060047515787890547"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/auth.controller.js",
+          "hash": "2443391049152904782",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/auth.controller.js.map",
+          "hash": "1914239874542939710"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/auth.module.d.ts",
+          "hash": "11647569113032610640"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/auth.module.js",
+          "hash": "17903059173339813078",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/jwt",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/auth.module.js.map",
+          "hash": "14108478316671590485"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/auth.service.d.ts",
+          "hash": "5927887579390850040",
+          "deps": [
+            "npm:@nestjs/jwt"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/auth.service.js",
+          "hash": "7147385260158554488",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/jwt"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/auth.service.js.map",
+          "hash": "12921399734170850091"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/decorators/roles.decorator.d.ts",
+          "hash": "7489838222119921796"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/decorators/roles.decorator.js",
+          "hash": "3749708892663664528",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/decorators/roles.decorator.js.map",
+          "hash": "15803847077355186637"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/change-password.dto.d.ts",
+          "hash": "16295561019739197968"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/change-password.dto.js",
+          "hash": "2318847079654206193",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/change-password.dto.js.map",
+          "hash": "4755030093910053128"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/create-session.dto.d.ts",
+          "hash": "16279198157415775549"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/create-session.dto.js",
+          "hash": "10653708720677754951",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/create-session.dto.js.map",
+          "hash": "6198946875986042814"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/create-user.dto.d.ts",
+          "hash": "4503697041474229894"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/create-user.dto.js",
+          "hash": "14423995648897878477",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/create-user.dto.js.map",
+          "hash": "10052617899675878913"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/forgot-password.dto.d.ts",
+          "hash": "13685348619980620780"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/forgot-password.dto.js",
+          "hash": "8494667043806419006",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/forgot-password.dto.js.map",
+          "hash": "8066575967729679315"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/login.dto.d.ts",
+          "hash": "8624481732786492595"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/login.dto.js",
+          "hash": "9308094818057011832",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/login.dto.js.map",
+          "hash": "12350381108748395333"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/register.dto.d.ts",
+          "hash": "7522297061452009859"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/register.dto.js",
+          "hash": "9972935120568627445",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/register.dto.js.map",
+          "hash": "7619331033429835296"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/reset-password.dto.d.ts",
+          "hash": "17953286316174988114"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/reset-password.dto.js",
+          "hash": "8963552385252844351",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/reset-password.dto.js.map",
+          "hash": "6292940132638688254"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/update-user.dto.d.ts",
+          "hash": "6266577571909087150",
+          "deps": [
+            "npm:@nestjs/mapped-types"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/update-user.dto.js",
+          "hash": "14900984220130920648",
+          "deps": [
+            "npm:@nestjs/mapped-types",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/dto/update-user.dto.js.map",
+          "hash": "5247588438067637076"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/guards/jwt-auth.guard.d.ts",
+          "hash": "6802133625885343042",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/passport"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/guards/jwt-auth.guard.js",
+          "hash": "11035702907834305753",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/guards/jwt-auth.guard.js.map",
+          "hash": "7779573212493494135"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/guards/roles.guard.d.ts",
+          "hash": "7013271995338131110",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/guards/roles.guard.js",
+          "hash": "17801019246899765668",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/guards/roles.guard.js.map",
+          "hash": "18050221040565652444"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/password.service.d.ts",
+          "hash": "7945070672823807299"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/password.service.js",
+          "hash": "2587930998955537619",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:bcrypt"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/password.service.js.map",
+          "hash": "11773770139809915975"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/session.service.d.ts",
+          "hash": "9889442045359485959"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/session.service.js",
+          "hash": "2159991202211855003",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/session.service.js.map",
+          "hash": "9246162639040116914"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/strategies/jwt.strategy.d.ts",
+          "hash": "17421670964399849408",
+          "deps": [
+            "npm:passport-jwt",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/strategies/jwt.strategy.js",
+          "hash": "7436137800079557892",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:passport-jwt",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/strategies/jwt.strategy.js.map",
+          "hash": "2366016173996318628"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/strategies/local.strategy.d.ts",
+          "hash": "17044918888697598194",
+          "deps": [
+            "npm:passport-local"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/strategies/local.strategy.js",
+          "hash": "2764499600781043928",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:passport-local"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/strategies/local.strategy.js.map",
+          "hash": "15199347152800948720"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/user.service.d.ts",
+          "hash": "15933594268594548052"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/user.service.js",
+          "hash": "16154395663651904989",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/auth/user.service.js.map",
+          "hash": "15310971445765596870"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/awareness.service.d.ts",
+          "hash": "17005841067631726262"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/awareness.service.js",
+          "hash": "11007531468746950669",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/awareness.service.js.map",
+          "hash": "7746417358623439418"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/campaigns.controller.d.ts",
+          "hash": "4115088918379276231"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/campaigns.controller.js",
+          "hash": "16727780865722600359",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/campaigns.controller.js.map",
+          "hash": "15117147398892620354"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/campaigns.module.d.ts",
+          "hash": "11696222838388496635"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/campaigns.module.js",
+          "hash": "12756744176642933263",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/campaigns.module.js.map",
+          "hash": "7816986839336348080"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/campaigns.service.d.ts",
+          "hash": "10551098526987255637"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/campaigns.service.js",
+          "hash": "653310282902926951",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/campaigns.service.js.map",
+          "hash": "17492627731760164732"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/community.service.d.ts",
+          "hash": "15384329170137696982"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/community.service.js",
+          "hash": "11971905852829762900",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/community.service.js.map",
+          "hash": "9157555206987789154"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-awareness-program.dto.d.ts",
+          "hash": "12032541709101438601"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-awareness-program.dto.js",
+          "hash": "12709594374461478415",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-awareness-program.dto.js.map",
+          "hash": "15575584370303620704"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-campaign.dto.d.ts",
+          "hash": "3310986342812529595"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-campaign.dto.js",
+          "hash": "9981116297462747769",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-campaign.dto.js.map",
+          "hash": "13769308620648723674"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-community-event.dto.d.ts",
+          "hash": "15637280832717377634"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-community-event.dto.js",
+          "hash": "1638592049099403811",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-community-event.dto.js.map",
+          "hash": "7436224646588342348"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-community-post.dto.d.ts",
+          "hash": "2202690341442772368"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-community-post.dto.js",
+          "hash": "6525277912263773142",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/create-community-post.dto.js.map",
+          "hash": "1428367712177821296"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/find-campaigns.dto.d.ts",
+          "hash": "4008391141768920176"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/find-campaigns.dto.js",
+          "hash": "17675464162775965993",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/find-campaigns.dto.js.map",
+          "hash": "13193863699704800768"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/update-campaign.dto.d.ts",
+          "hash": "15802325966877002797",
+          "deps": [
+            "npm:@nestjs/mapped-types"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/update-campaign.dto.js",
+          "hash": "8081860438281817691",
+          "deps": [
+            "npm:@nestjs/mapped-types"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/campaigns/dto/update-campaign.dto.js.map",
+          "hash": "1270401018580124407"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/audit.service.d.ts",
+          "hash": "14907168341714469044"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/audit.service.js",
+          "hash": "654355283379263027",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/audit.service.js.map",
+          "hash": "6094306161595924711"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/compliance.controller.d.ts",
+          "hash": "16727386300613096016"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/compliance.controller.js",
+          "hash": "13361600746956214822",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/compliance.controller.js.map",
+          "hash": "15823446074452268154"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/compliance.module.d.ts",
+          "hash": "5935588056851458688"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/compliance.module.js",
+          "hash": "2905553847246406881",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/compliance.module.js.map",
+          "hash": "17211772660357343467"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/compliance.service.d.ts",
+          "hash": "15710007052043479572"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/compliance.service.js",
+          "hash": "1019049190365069943",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/compliance.service.js.map",
+          "hash": "13204665764117339889"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/data-protection.service.d.ts",
+          "hash": "5390842423196630064"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/data-protection.service.js",
+          "hash": "7083924504393634910",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/data-protection.service.js.map",
+          "hash": "713224359932560387"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/regulatory.service.d.ts",
+          "hash": "10827083685377237427"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/regulatory.service.js",
+          "hash": "13055313033758581290",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/compliance/regulatory.service.js.map",
+          "hash": "2927603136887182127"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/content.controller.d.ts",
+          "hash": "12651806760509309841"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/content.controller.js",
+          "hash": "3603081293363977909",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/platform-express"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/content.controller.js.map",
+          "hash": "16415605640664958437"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/content.module.d.ts",
+          "hash": "17771612865821342843"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/content.module.js",
+          "hash": "1055892205523278176",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/content.module.js.map",
+          "hash": "15014661301463718276"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/content.service.d.ts",
+          "hash": "8311547054455975088"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/content.service.js",
+          "hash": "12423856855857230502",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/content.service.js.map",
+          "hash": "1685761535811171283"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/create-content.dto.d.ts",
+          "hash": "5381693871742813108"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/create-content.dto.js",
+          "hash": "14760386059792953927",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/create-content.dto.js.map",
+          "hash": "4697544940517498304"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/create-translation.dto.d.ts",
+          "hash": "3151934860731943262"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/create-translation.dto.js",
+          "hash": "13658866611100632537",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/create-translation.dto.js.map",
+          "hash": "16997975297810386355"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/find-content.dto.d.ts",
+          "hash": "15258955535859516566"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/find-content.dto.js",
+          "hash": "9957600018428144678",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/find-content.dto.js.map",
+          "hash": "5442075918182636287"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/update-content.dto.d.ts",
+          "hash": "11588954703303614657",
+          "deps": [
+            "npm:@nestjs/mapped-types"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/update-content.dto.js",
+          "hash": "16420270098880816648",
+          "deps": [
+            "npm:@nestjs/mapped-types"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/update-content.dto.js.map",
+          "hash": "8317326868896220182"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/upload-media.dto.d.ts",
+          "hash": "17247971954458400203"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/upload-media.dto.js",
+          "hash": "3731510901758679521",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/dto/upload-media.dto.js.map",
+          "hash": "16479927630836402500"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/media.service.d.ts",
+          "hash": "9211343433638657204"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/media.service.js",
+          "hash": "5373024630663860218",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/media.service.js.map",
+          "hash": "903266108218310662"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/translation.service.d.ts",
+          "hash": "11608250720554996175"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/translation.service.js",
+          "hash": "7411680124491142167",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/content/translation.service.js.map",
+          "hash": "2930752077740281700"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/dto/create-education-material.dto.d.ts",
+          "hash": "18156744708779377172"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/dto/create-education-material.dto.js",
+          "hash": "13410247958836729396",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/dto/create-education-material.dto.js.map",
+          "hash": "859136921918835735"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/dto/find-education-materials.dto.d.ts",
+          "hash": "8628830236085677312"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/dto/find-education-materials.dto.js",
+          "hash": "16104219357128145045",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/dto/find-education-materials.dto.js.map",
+          "hash": "16769095738357304556"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/dto/update-education-material.dto.d.ts",
+          "hash": "7918902063154140062"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/dto/update-education-material.dto.js",
+          "hash": "7613484505968370440",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/dto/update-education-material.dto.js.map",
+          "hash": "13929060835747985435"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/education.controller.d.ts",
+          "hash": "12014226572420569806"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/education.controller.js",
+          "hash": "11368613328628785949",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/education.controller.js.map",
+          "hash": "214339974589900903"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/education.module.d.ts",
+          "hash": "17831917282293977860"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/education.module.js",
+          "hash": "6321284253046499103",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/education.module.js.map",
+          "hash": "16703864127821414296"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/education.service.d.ts",
+          "hash": "14891364405100342888"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/education.service.js",
+          "hash": "1131058301814493107",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/education/education.service.js.map",
+          "hash": "14200322492656072434"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.controller.d.ts",
+          "hash": "18158996412105022407"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.controller.js",
+          "hash": "16163119480980255627",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.controller.js.map",
+          "hash": "6523659564216585466"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.module.d.ts",
+          "hash": "15901639508048867584"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.module.js",
+          "hash": "5362450480690369445",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.module.js.map",
+          "hash": "6422398464269560962"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.service.d.ts",
+          "hash": "15532918119011045477"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.service.js",
+          "hash": "3674917494529939643",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.service.js.map",
+          "hash": "7487207931032652476"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.service.spec.d.ts",
+          "hash": "4595979742548113990"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.service.spec.js",
+          "hash": "13099943069955090330",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/health/health.service.spec.js.map",
+          "hash": "9979935910346356301"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/dto/create-hospital.dto.d.ts",
+          "hash": "17703236674873637475"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/dto/create-hospital.dto.js",
+          "hash": "7214095546881778190",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/dto/create-hospital.dto.js.map",
+          "hash": "8621926221669614127"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/dto/find-nearby-hospitals.dto.d.ts",
+          "hash": "14888696782733415487"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/dto/find-nearby-hospitals.dto.js",
+          "hash": "16979021489933234666",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/dto/find-nearby-hospitals.dto.js.map",
+          "hash": "2484450131330479268"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.controller.d.ts",
+          "hash": "11521615861012342488"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.controller.js",
+          "hash": "12282641181205963898",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.controller.js.map",
+          "hash": "987527043611970463"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.module.d.ts",
+          "hash": "15137855902257040307"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.module.js",
+          "hash": "3582519311659061398",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.module.js.map",
+          "hash": "1774901027010174518"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.service.d.ts",
+          "hash": "6470754495316449830"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.service.js",
+          "hash": "11186108933101776743",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.service.js.map",
+          "hash": "4320506671261819776"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.service.spec.d.ts",
+          "hash": "4595979742548113990"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.service.spec.js",
+          "hash": "3829457729525801342",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/hospital/hospital.service.spec.js.map",
+          "hash": "7344090432331401247"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/content-localization.service.d.ts",
+          "hash": "1080050341841381038"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/content-localization.service.js",
+          "hash": "6910474148729043280",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/content-localization.service.js.map",
+          "hash": "7140186928026057794"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/language-detection.service.d.ts",
+          "hash": "1864921626814197146"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/language-detection.service.js",
+          "hash": "9532187741594437870",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/language-detection.service.js.map",
+          "hash": "18411650943520261229"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/localization.controller.d.ts",
+          "hash": "7287828129147162338"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/localization.controller.js",
+          "hash": "17824605036946528261",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/localization.controller.js.map",
+          "hash": "15942764313492219370"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/localization.module.d.ts",
+          "hash": "2829900071945689870"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/localization.module.js",
+          "hash": "9821964368611557484",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/localization.module.js.map",
+          "hash": "16665563033734016273"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/localization.service.d.ts",
+          "hash": "11562047159082680297"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/localization.service.js",
+          "hash": "18419431203326137123",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/localization.service.js.map",
+          "hash": "8616260783863531253"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/translation.service.d.ts",
+          "hash": "14274297446028902989"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/translation.service.js",
+          "hash": "5584024234696911625",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/localization/translation.service.js.map",
+          "hash": "18119512955998507807"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/notifications.controller.d.ts",
+          "hash": "429855292434465985"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/notifications.controller.js",
+          "hash": "18323822403879761478",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/notifications.controller.js.map",
+          "hash": "9474713444255745940"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/notifications.module.d.ts",
+          "hash": "17861056187230917802"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/notifications.module.js",
+          "hash": "17069061417631230041",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/notifications.module.js.map",
+          "hash": "6341639547918918533"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/notifications.service.d.ts",
+          "hash": "2798529063519288564",
+          "deps": [
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/notifications.service.js",
+          "hash": "561726081140164324",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/notifications.service.js.map",
+          "hash": "14102305549120458300"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/services/africas-talking.service.d.ts",
+          "hash": "15492224063835854234",
+          "deps": [
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/services/africas-talking.service.js",
+          "hash": "13688104769019450297",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios",
+            "npm:rxjs/operators"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/services/africas-talking.service.js.map",
+          "hash": "8242926073822979458"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/services/email.service.d.ts",
+          "hash": "16255336804964705224",
+          "deps": [
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/services/email.service.js",
+          "hash": "13185570795590246013",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios",
+            "npm:rxjs/operators"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/services/email.service.js.map",
+          "hash": "3771591704596950685"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/services/twilio.service.d.ts",
+          "hash": "5577324573805218386",
+          "deps": [
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/services/twilio.service.js",
+          "hash": "16702396836770455286",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios",
+            "npm:rxjs/operators"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/notifications/services/twilio.service.js.map",
+          "hash": "18018013471797696931"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/cache.service.d.ts",
+          "hash": "15637434113554619881"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/cache.service.js",
+          "hash": "6481369034992297688",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/cache.service.js.map",
+          "hash": "4227189273542292362"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/monitoring.service.d.ts",
+          "hash": "5770852586591597019"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/monitoring.service.js",
+          "hash": "6568057646489081260",
+          "deps": [
+            "npm:@nestjs/common",
+            [
+              "npm:os",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/monitoring.service.js.map",
+          "hash": "8861203408049529452"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/optimization.service.d.ts",
+          "hash": "12893410403885317042"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/optimization.service.js",
+          "hash": "9717309825833806389",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/optimization.service.js.map",
+          "hash": "17842026097079525536"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/performance.controller.d.ts",
+          "hash": "3722625804558526091"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/performance.controller.js",
+          "hash": "11856425310143799316",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/performance.controller.js.map",
+          "hash": "12365698698993958294"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/performance.module.d.ts",
+          "hash": "14727516884137270146"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/performance.module.js",
+          "hash": "952676961478008605",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/performance.module.js.map",
+          "hash": "3954719180518902856"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/performance.service.d.ts",
+          "hash": "13641682198142094311"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/performance.service.js",
+          "hash": "13574391257657074164",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/performance/performance.service.js.map",
+          "hash": "14844689775644030629"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/compliance.service.d.ts",
+          "hash": "3632456353703553841"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/compliance.service.js",
+          "hash": "6533566466490328724",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/compliance.service.js.map",
+          "hash": "6303718439644066290"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/country.service.d.ts",
+          "hash": "7626591197653485287"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/country.service.js",
+          "hash": "17499347262800182221",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/country.service.js.map",
+          "hash": "2984747666743145118"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/language.service.d.ts",
+          "hash": "16653624831318639999"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/language.service.js",
+          "hash": "13635699814310249284",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/language.service.js.map",
+          "hash": "2523908313082833479"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/partnership.service.d.ts",
+          "hash": "14559811966584918697"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/partnership.service.js",
+          "hash": "9882098552748953431",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/partnership.service.js.map",
+          "hash": "14337124046045310181"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/regional.controller.d.ts",
+          "hash": "17560332774778337493"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/regional.controller.js",
+          "hash": "4657500502158024693",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/regional.controller.js.map",
+          "hash": "10800288172975774770"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/regional.module.d.ts",
+          "hash": "12644907758946653171"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/regional.module.js",
+          "hash": "8563682307257841818",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/regional.module.js.map",
+          "hash": "17569434463923924623"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/regional.service.d.ts",
+          "hash": "7415820368366119147"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/regional.service.js",
+          "hash": "5313527156212132753",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/regional/regional.service.js.map",
+          "hash": "6597530351850757799"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/dto/create-sos-report.dto.d.ts",
+          "hash": "6940942959323866603"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/dto/create-sos-report.dto.js",
+          "hash": "12882022385082473800",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/dto/create-sos-report.dto.js.map",
+          "hash": "16281148330648792268"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/dto/find-sos-reports.dto.d.ts",
+          "hash": "2675502373967376705"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/dto/find-sos-reports.dto.js",
+          "hash": "8763463480678743889",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/dto/find-sos-reports.dto.js.map",
+          "hash": "1749204617161406327"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/dto/update-sos-report.dto.d.ts",
+          "hash": "11163545716986091629"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/dto/update-sos-report.dto.js",
+          "hash": "8277987254876420306",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/dto/update-sos-report.dto.js.map",
+          "hash": "3981887139952939760"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/sos.controller.d.ts",
+          "hash": "3206586830267112472"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/sos.controller.js",
+          "hash": "12442478065272076128",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/sos.controller.js.map",
+          "hash": "3400227431367092930"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/sos.module.d.ts",
+          "hash": "7415023445734832122"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/sos.module.js",
+          "hash": "7407909799899752418",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/sos.module.js.map",
+          "hash": "2357270167392017601"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/sos.service.d.ts",
+          "hash": "2598154106794055439"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/sos.service.js",
+          "hash": "15238186608475981693",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/sos/sos.service.js.map",
+          "hash": "8101876458753157667"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/dto/create-stock-update.dto.d.ts",
+          "hash": "17158123681617918184"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/dto/create-stock-update.dto.js",
+          "hash": "6736590328348806666",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/dto/create-stock-update.dto.js.map",
+          "hash": "7980687496798223599"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/dto/find-stock-by-hospital.dto.d.ts",
+          "hash": "8886014011418419085"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/dto/find-stock-by-hospital.dto.js",
+          "hash": "11987176202406984576",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/dto/find-stock-by-hospital.dto.js.map",
+          "hash": "7414912902366914222"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/dto/update-stock-update.dto.d.ts",
+          "hash": "11528966923460134842"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/dto/update-stock-update.dto.js",
+          "hash": "8681052342170467108",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/dto/update-stock-update.dto.js.map",
+          "hash": "6811760895782951029"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/stock.controller.d.ts",
+          "hash": "7867148811886141215"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/stock.controller.js",
+          "hash": "3757600571233032185",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/stock.controller.js.map",
+          "hash": "6252242021861553703"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/stock.module.d.ts",
+          "hash": "9375979575258847932"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/stock.module.js",
+          "hash": "3402403841194475644",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/stock.module.js.map",
+          "hash": "11204915626612905787"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/stock.service.d.ts",
+          "hash": "3872067874479406862"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/stock.service.js",
+          "hash": "11815332949016649349",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/stock/stock.service.js.map",
+          "hash": "9390408436305687260"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/websocket/websocket.gateway.d.ts",
+          "hash": "2329802811962217966",
+          "deps": [
+            "npm:@nestjs/websockets",
+            "npm:socket.io"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/websocket/websocket.gateway.js",
+          "hash": "31208560732108437",
+          "deps": [
+            "npm:@nestjs/websockets",
+            "npm:socket.io"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/websocket/websocket.gateway.js.map",
+          "hash": "10772827164436784395"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/websocket/websocket.module.d.ts",
+          "hash": "15696681300377460101"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/websocket/websocket.module.js",
+          "hash": "17499838741534220334",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/websocket/websocket.module.js.map",
+          "hash": "10151331339744201479"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/websocket/websocket.service.d.ts",
+          "hash": "8802909434729672498"
+        },
+        {
+          "file": "apps/backend/dist/src/modules/websocket/websocket.service.js",
+          "hash": "819424990102233635",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/src/modules/websocket/websocket.service.js.map",
+          "hash": "9974308550713111126"
+        },
+        {
+          "file": "apps/backend/dist/test/health.e2e-spec.d.ts",
+          "hash": "4595979742548113990"
+        },
+        {
+          "file": "apps/backend/dist/test/health.e2e-spec.js",
+          "hash": "17576097387832701985",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:supertest"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/test/health.e2e-spec.js.map",
+          "hash": "4498136960579462413"
+        },
+        {
+          "file": "apps/backend/dist/test/hospitals.e2e-spec.d.ts",
+          "hash": "4595979742548113990"
+        },
+        {
+          "file": "apps/backend/dist/test/hospitals.e2e-spec.js",
+          "hash": "6616149011947092796",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:supertest"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/test/hospitals.e2e-spec.js.map",
+          "hash": "9815084432659016165"
+        },
+        {
+          "file": "apps/backend/dist/test/stock.e2e-spec.d.ts",
+          "hash": "4595979742548113990"
+        },
+        {
+          "file": "apps/backend/dist/test/stock.e2e-spec.js",
+          "hash": "10253292561874042836",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:supertest"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/test/stock.e2e-spec.js.map",
+          "hash": "12198150297673366791"
+        },
+        {
+          "file": "apps/backend/dist/test/test-setup.d.ts",
+          "hash": "6614603043486899346",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/test/test-setup.js",
+          "hash": "7042910991111447189",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/backend/dist/test/test-setup.js.map",
+          "hash": "6867022440674671323"
+        },
+        {
+          "file": "apps/backend/dist/tsconfig.tsbuildinfo",
+          "hash": "7668672366095851159"
+        },
+        {
+          "file": "apps/backend/logs/combined.log",
+          "hash": "1511046557413213538"
+        },
+        {
+          "file": "apps/backend/logs/error.log",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/backend/nest-cli.json",
+          "hash": "789240945379598733"
+        },
+        {
+          "file": "apps/backend/package.json",
+          "hash": "18064062429209759657"
+        },
+        {
+          "file": "apps/backend/src/app.module.ts",
+          "hash": "10847260337195945859",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/throttler"
+          ]
+        },
+        {
+          "file": "apps/backend/src/common/logger/logger.module.ts",
+          "hash": "13916311528519962659",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/common/logger/logger.service.ts",
+          "hash": "13499470099283616415",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:winston"
+          ]
+        },
+        {
+          "file": "apps/backend/src/common/prisma/prisma.module.ts",
+          "hash": "10238961258611182846",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/common/prisma/prisma.service.ts",
+          "hash": "12732167017292963041",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@prisma/client"
+          ]
+        },
+        {
+          "file": "apps/backend/src/main.ts",
+          "hash": "15348065225860766475",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger",
+            "npm:@nestjs/config",
+            "npm:helmet",
+            "npm:compression"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/ai/ai.controller.ts",
+          "hash": "15957626951986176295",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/ai/ai.module.ts",
+          "hash": "2988330442667971016",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/axios",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/ai/ai.service.ts",
+          "hash": "1888222983479826369",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios",
+            "npm:rxjs/operators"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/ai/dto/chatbot-query.dto.ts",
+          "hash": "4365081303001367896",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/ai/dto/snake-detection.dto.ts",
+          "hash": "9094354810021580585",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/analytics/analytics.controller.ts",
+          "hash": "10990894749825388738",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/analytics/analytics.module.ts",
+          "hash": "2176553320288785399",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/analytics/analytics.service.ts",
+          "hash": "13842811324759114655",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/analytics/dto/create-analytics-log.dto.ts",
+          "hash": "9678544358798989108",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/analytics/dto/get-analytics.dto.ts",
+          "hash": "4736179539506217804",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/auth.controller.ts",
+          "hash": "13553915327966165102",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/auth.module.ts",
+          "hash": "4141622679573653289",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/jwt",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/auth.service.ts",
+          "hash": "10693219810134337209",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/jwt"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/decorators/roles.decorator.ts",
+          "hash": "11745620449776234641",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/dto/change-password.dto.ts",
+          "hash": "10152899700888903809",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/dto/create-session.dto.ts",
+          "hash": "5656330742171202020",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/dto/create-user.dto.ts",
+          "hash": "7424989437507211223",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/dto/forgot-password.dto.ts",
+          "hash": "8100690343931906803",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/dto/login.dto.ts",
+          "hash": "7688166151648712543",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/dto/register.dto.ts",
+          "hash": "5545347516273356640",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/dto/reset-password.dto.ts",
+          "hash": "4621416778174760198",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/dto/update-user.dto.ts",
+          "hash": "784877360243349308",
+          "deps": [
+            "npm:@nestjs/mapped-types",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/guards/jwt-auth.guard.ts",
+          "hash": "17234541561533370429",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/guards/roles.guard.ts",
+          "hash": "11388359091054643495",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/password.service.ts",
+          "hash": "4592964309191276623",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:bcrypt"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/session.service.ts",
+          "hash": "11453243455386303024",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/strategies/jwt.strategy.ts",
+          "hash": "12828235227732141596",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:passport-jwt",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/strategies/local.strategy.ts",
+          "hash": "5036129319980571810",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:passport-local"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/auth/user.service.ts",
+          "hash": "8999865857938916378",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/awareness.service.ts",
+          "hash": "15091665630953926190",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/campaigns.controller.ts",
+          "hash": "16052942572979548504",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/campaigns.module.ts",
+          "hash": "21066199686683444",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/campaigns.service.ts",
+          "hash": "3077433264256517431",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/community.service.ts",
+          "hash": "13032042032155267393",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/dto/create-awareness-program.dto.ts",
+          "hash": "8332591117728655209",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/dto/create-campaign.dto.ts",
+          "hash": "16561684524847284934",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/dto/create-community-event.dto.ts",
+          "hash": "17149314348978143567",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/dto/create-community-post.dto.ts",
+          "hash": "4927608469047877666",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/dto/find-campaigns.dto.ts",
+          "hash": "14504780608632817496",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/campaigns/dto/update-campaign.dto.ts",
+          "hash": "9313472253777244202",
+          "deps": [
+            "npm:@nestjs/mapped-types"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/compliance/audit.service.ts",
+          "hash": "12702630342393155518",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/compliance/compliance.controller.ts",
+          "hash": "418676560188495204",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/compliance/compliance.module.ts",
+          "hash": "7560981320146171046",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/compliance/compliance.service.ts",
+          "hash": "4019632997972654150",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/compliance/data-protection.service.ts",
+          "hash": "9512663667372515756",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/compliance/regulatory.service.ts",
+          "hash": "2434693615475210383",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/content/content.controller.ts",
+          "hash": "12234153409481647448",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/platform-express"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/content/content.module.ts",
+          "hash": "13508498656334222459",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/content/content.service.ts",
+          "hash": "17145227584395213115",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/content/dto/create-content.dto.ts",
+          "hash": "1015147784158177854",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/content/dto/create-translation.dto.ts",
+          "hash": "9469527231052727456",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/content/dto/find-content.dto.ts",
+          "hash": "2556286813165349661",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/content/dto/update-content.dto.ts",
+          "hash": "2562772463177789850",
+          "deps": [
+            "npm:@nestjs/mapped-types"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/content/dto/upload-media.dto.ts",
+          "hash": "15641054825140842117",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/content/media.service.ts",
+          "hash": "16994920042976133600",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/content/translation.service.ts",
+          "hash": "9019055547479289736",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/education/dto/create-education-material.dto.ts",
+          "hash": "4574242137451589459",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/education/dto/find-education-materials.dto.ts",
+          "hash": "3821667596469631300",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/education/dto/update-education-material.dto.ts",
+          "hash": "4995301890553741699",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/education/education.controller.ts",
+          "hash": "16226182586514234640",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/education/education.module.ts",
+          "hash": "1019669715667604471",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/education/education.service.ts",
+          "hash": "10278281963583486186",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/health/health.controller.ts",
+          "hash": "11432525049877121344",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/health/health.module.ts",
+          "hash": "14265447386532064600",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/health/health.service.spec.ts",
+          "hash": "9593906383071143718",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/health/health.service.ts",
+          "hash": "11234423557776867345",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/hospital/dto/create-hospital.dto.ts",
+          "hash": "7482002842534565172",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/hospital/dto/find-nearby-hospitals.dto.ts",
+          "hash": "52363447009037012",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/hospital/hospital.controller.ts",
+          "hash": "15108205407236410326",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/hospital/hospital.module.ts",
+          "hash": "14152161301063411787",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/hospital/hospital.service.spec.ts",
+          "hash": "17585314588608543528",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/hospital/hospital.service.ts",
+          "hash": "2267700310545896432",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/localization/content-localization.service.ts",
+          "hash": "5279881991927099233",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/localization/language-detection.service.ts",
+          "hash": "5416545335795372331",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/localization/localization.controller.ts",
+          "hash": "6991893605964931592",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/localization/localization.module.ts",
+          "hash": "10848029583088695174",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/localization/localization.service.ts",
+          "hash": "16502171912983965022",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/localization/translation.service.ts",
+          "hash": "11175800594546589487",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/notifications/notifications.controller.ts",
+          "hash": "4591709182715299794",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/notifications/notifications.module.ts",
+          "hash": "15992008184375399492",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/notifications/notifications.service.ts",
+          "hash": "6847571822773853168",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/notifications/services/africas-talking.service.ts",
+          "hash": "8497553106696149071",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios",
+            "npm:rxjs/operators"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/notifications/services/email.service.ts",
+          "hash": "6616753465948761620",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios",
+            "npm:rxjs/operators"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/notifications/services/twilio.service.ts",
+          "hash": "16927442689345393613",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios",
+            "npm:rxjs/operators"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/performance/cache.service.ts",
+          "hash": "11705714041304213856",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/performance/monitoring.service.ts",
+          "hash": "546774309347910957",
+          "deps": [
+            "npm:@nestjs/common",
+            [
+              "npm:os",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/performance/optimization.service.ts",
+          "hash": "403373360559744524",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/performance/performance.controller.ts",
+          "hash": "11034291310513725142",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/performance/performance.module.ts",
+          "hash": "11985140258421552830",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/performance/performance.service.ts",
+          "hash": "6960653868175874037",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/regional/compliance.service.ts",
+          "hash": "15342967154672829022",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/regional/country.service.ts",
+          "hash": "7536390097406488797",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/regional/language.service.ts",
+          "hash": "10220507193578123561",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/regional/partnership.service.ts",
+          "hash": "13948772253999094275",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/regional/regional.controller.ts",
+          "hash": "3632333636617808831",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/regional/regional.module.ts",
+          "hash": "17712867117307007000",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/regional/regional.service.ts",
+          "hash": "10288345970995403452",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/sos/dto/create-sos-report.dto.ts",
+          "hash": "10028859481036386668",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/sos/dto/find-sos-reports.dto.ts",
+          "hash": "6329377657583909484",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/sos/dto/update-sos-report.dto.ts",
+          "hash": "15504714298309657762",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/sos/sos.controller.ts",
+          "hash": "6486582032985900071",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/sos/sos.module.ts",
+          "hash": "3768015055492998169",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/sos/sos.service.ts",
+          "hash": "2951978621074341496",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/stock/dto/create-stock-update.dto.ts",
+          "hash": "660301587155415643",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/stock/dto/find-stock-by-hospital.dto.ts",
+          "hash": "7600431681767311834",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/stock/dto/update-stock-update.dto.ts",
+          "hash": "3449767642395716183",
+          "deps": [
+            "npm:class-validator",
+            "npm:class-transformer",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/stock/stock.controller.ts",
+          "hash": "1396848432566003766",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/stock/stock.module.ts",
+          "hash": "15925259055562217450",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/stock/stock.service.ts",
+          "hash": "14830608864136839128",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/websocket/websocket.gateway.ts",
+          "hash": "18144060018837194705",
+          "deps": [
+            "npm:@nestjs/websockets",
+            "npm:socket.io"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/websocket/websocket.module.ts",
+          "hash": "9328853955481577511",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/modules/websocket/websocket.service.ts",
+          "hash": "391423710800848774",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/test/health.e2e-spec.ts",
+          "hash": "17356364988393889373",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:@nestjs/common",
+            "npm:supertest"
+          ]
+        },
+        {
+          "file": "apps/backend/test/hospitals.e2e-spec.ts",
+          "hash": "5300921020457981989",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:@nestjs/common",
+            "npm:supertest"
+          ]
+        },
+        {
+          "file": "apps/backend/test/jest-e2e.json",
+          "hash": "12946477661065786406"
+        },
+        {
+          "file": "apps/backend/test/stock.e2e-spec.ts",
+          "hash": "861576880984354195",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:@nestjs/common",
+            "npm:supertest"
+          ]
+        },
+        {
+          "file": "apps/backend/test/test-setup.ts",
+          "hash": "8776941647656780637",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/tsconfig.json",
+          "hash": "18010232341245305742"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".cursorrules",
+        "hash": "2969553393916041964"
+      },
+      {
+        "file": ".env",
+        "hash": "1149227598785359285"
+      },
+      {
+        "file": ".env.example",
+        "hash": "10667465175861628497"
+      },
+      {
+        "file": ".github/workflows/ci.yml",
+        "hash": "5981100655797047777"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "3614174948094147940"
+      },
+      {
+        "file": "PROGRESS.md",
+        "hash": "4113888646746249307"
+      },
+      {
+        "file": "PROJECT_SOURCE_OF_TRUTH.md",
+        "hash": "3921256648586363381"
+      },
+      {
+        "file": "README.md",
+        "hash": "9781031827822537836"
+      },
+      {
+        "file": "apps/mobile/lib/core/config/app_config.dart",
+        "hash": "16385719047435439902"
+      },
+      {
+        "file": "apps/mobile/lib/core/providers/app_providers.dart",
+        "hash": "12514883439969948500"
+      },
+      {
+        "file": "apps/mobile/lib/core/router/app_router.dart",
+        "hash": "14109705789266691522"
+      },
+      {
+        "file": "apps/mobile/lib/core/services/notification_service.dart",
+        "hash": "10784312532705381912"
+      },
+      {
+        "file": "apps/mobile/lib/core/services/offline_service.dart",
+        "hash": "7503316205021113194"
+      },
+      {
+        "file": "apps/mobile/lib/core/services/storage_service.dart",
+        "hash": "6503675414491262104"
+      },
+      {
+        "file": "apps/mobile/lib/core/services/sync_service.dart",
+        "hash": "10717170007028837732"
+      },
+      {
+        "file": "apps/mobile/lib/core/theme/app_theme.dart",
+        "hash": "17482043267216626297"
+      },
+      {
+        "file": "apps/mobile/lib/features/emergency/presentation/pages/emergency_page.dart",
+        "hash": "2268562751392441856"
+      },
+      {
+        "file": "apps/mobile/lib/features/home/presentation/pages/home_page.dart",
+        "hash": "6877021068203637666"
+      },
+      {
+        "file": "apps/mobile/lib/features/snake_identification/presentation/pages/snake_identification_page.dart",
+        "hash": "4078896028549021004"
+      },
+      {
+        "file": "apps/mobile/lib/main.dart",
+        "hash": "5272212810948640197"
+      },
+      {
+        "file": "apps/mobile/pubspec.yaml",
+        "hash": "16007421965792527992"
+      },
+      {
+        "file": "blueprint.md",
+        "hash": "59961256864175297"
+      },
+      {
+        "file": "docker-compose.yml",
+        "hash": "5551111093696891269"
+      },
+      {
+        "file": "docker-compose.yml.backup",
+        "hash": "233441486816524451"
+      },
+      {
+        "file": "docs/architecture/README.md",
+        "hash": "370125094989577119"
+      },
+      {
+        "file": "docs/changelogs/CHANGELOG.md",
+        "hash": "158933694061207160"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15391940842460299709"
+      },
+      {
+        "file": "package.json",
+        "hash": "11300692934887852605"
+      },
+      {
+        "file": "prisma/init.sql",
+        "hash": "2906613443933922493"
+      },
+      {
+        "file": "prisma/schema.prisma",
+        "hash": "17589840459208693027"
+      },
+      {
+        "file": "prisma/seed.ts",
+        "hash": "2497819424639114143"
+      },
+      {
+        "file": "prisma/seed/education.json",
+        "hash": "10102699358747032065"
+      },
+      {
+        "file": "prisma/seed/hospitals.json",
+        "hash": "6579446291043419661"
+      },
+      {
+        "file": "prisma/seed/snakes.json",
+        "hash": "717581841089921685"
+      },
+      {
+        "file": "scripts/setup.sh",
+        "hash": "634218649598382335"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "1437866005996992383"
+      }
+    ]
+  }
+}

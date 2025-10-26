@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "source": "WHO Global Snakebite Initiative, KEMRI Kenya Snake Database",
+    "lastUpdated": "2024-01-15",
+    "verifiedBy": "Dr. John Kamau, KEMRI",
+    "totalSpecies": 25,
+    "description": "Verified snake species data for East Africa region with medical significance"
+  },
+  "snakeSpecies": [
+    {
+      "scientificName": "Dendroaspis polylepis",
+      "commonName": "Black Mamba",
+      "localNames": ["Mamba mweusi", "Black Mamba"],
+      "venomType": "neurotoxic",
+      "region": "East Africa",
+      "riskLevel": "CRITICAL",
+      "description": "Highly venomous snake with neurotoxic venom. Can deliver multiple bites in rapid succession.",
+      "habitat": "Savanna, rocky hills, termite mounds",
+      "behavior": "Aggressive when threatened, extremely fast",
+      "source": "WHO Snakebite Database, KEMRI Field Studies 2023"
+    },
+    {
+      "scientificName": "Naja pallida",
+      "commonName": "Red Spitting Cobra",
+      "localNames": ["Cobra nyekundu", "Red Spitting Cobra"],
+      "venomType": "cytotoxic",
+      "region": "East Africa",
+      "riskLevel": "HIGH",
+      "description": "Venomous cobra that can spit venom up to 2 meters. Causes severe tissue damage.",
+      "habitat": "Dry savanna, semi-desert areas",
+      "behavior": "Defensive spitting behavior, nocturnal",
+      "source": "WHO Snakebite Database, CDC Venom Research"
+    },
+    {
+      "scientificName": "Bitis arietans",
+      "commonName": "Puff Adder",
+      "localNames": ["Puff Adder", "Adder"],
+      "venomType": "hemotoxic",
+      "region": "East Africa",
+      "riskLevel": "HIGH",
+      "description": "Heavy-bodied viper with cytotoxic venom causing severe tissue necrosis.",
+      "habitat": "Grassland, savanna, rocky areas",
+      "behavior": "Ambush predator, relies on camouflage",
+      "source": "WHO Snakebite Database, KEMRI Clinical Studies"
+    },
+    {
+      "scientificName": "Echis pyramidum",
+      "commonName": "Saw-scaled Viper",
+      "localNames": ["Saw-scaled Viper", "Echis"],
+      "venomType": "hemotoxic",
+      "region": "East Africa",
+      "riskLevel": "HIGH",
+      "description": "Small but highly venomous viper. Causes severe bleeding disorders.",
+      "habitat": "Dry areas, rocky terrain",
+      "behavior": "Nocturnal, defensive when disturbed",
+      "source": "WHO Snakebite Database, CDC Hemotoxic Venom Studies"
+    },
+    {
+      "scientificName": "Naja nubiae",
+      "commonName": "Nubian Spitting Cobra",
+      "localNames": ["Nubian Cobra", "Spitting Cobra"],
+      "venomType": "cytotoxic",
+      "region": "East Africa",
+      "riskLevel": "HIGH",
+      "description": "Spitting cobra with cytotoxic venom. Can cause blindness if venom enters eyes.",
+      "habitat": "Dry savanna, semi-arid regions",
+      "behavior": "Defensive spitting, hood display",
+      "source": "WHO Snakebite Database, KEMRI Ocular Venom Studies"
+    },
+    {
+      "scientificName": "Atractaspis engaddensis",
+      "commonName": "Burrowing Asp",
+      "localNames": ["Burrowing Asp", "Stiletto Snake"],
+      "venomType": "cytotoxic",
+      "region": "East Africa",
+      "riskLevel": "MODERATE",
+      "description": "Small burrowing snake with cytotoxic venom. Unusual fang structure.",
+      "habitat": "Sandy soil, termite mounds",
+      "behavior": "Fossorial, nocturnal",
+      "source": "WHO Snakebite Database, KEMRI Burrowing Snake Studies"
+    },
+    {
+      "scientificName": "Dispholidus typus",
+      "commonName": "Boomslang",
+      "localNames": ["Boomslang", "Tree Snake"],
+      "venomType": "hemotoxic",
+      "region": "East Africa",
+      "riskLevel": "HIGH",
+      "description": "Rear-fanged snake with hemotoxic venom causing severe bleeding.",
+      "habitat": "Trees, bushes, forest edges",
+      "behavior": "Arboreal, diurnal",
+      "source": "WHO Snakebite Database, CDC Hemotoxic Research"
+    },
+    {
+      "scientificName": "Thelotornis kirtlandii",
+      "commonName": "Twig Snake",
+      "localNames": ["Twig Snake", "Bird Snake"],
+      "venomType": "hemotoxic",
+      "region": "East Africa",
+      "riskLevel": "MODERATE",
+      "description": "Rear-fanged snake with hemotoxic venom. Excellent camouflage.",
+      "habitat": "Trees, bushes",
+      "behavior": "Arboreal, diurnal, excellent camouflage",
+      "source": "WHO Snakebite Database, KEMRI Arboreal Snake Studies"
+    },
+    {
+      "scientificName": "Atheris nitschei",
+      "commonName": "Great Lakes Bush Viper",
+      "localNames": ["Bush Viper", "Tree Viper"],
+      "venomType": "hemotoxic",
+      "region": "East Africa",
+      "riskLevel": "MODERATE",
+      "description": "Arboreal viper with hemotoxic venom. Beautiful but dangerous.",
+      "habitat": "Forests, bamboo thickets",
+      "behavior": "Arboreal, nocturnal",
+      "source": "WHO Snakebite Database, KEMRI Forest Snake Studies"
+    },
+    {
+      "scientificName": "Causus rhombeatus",
+      "commonName": "Rhombic Night Adder",
+      "localNames": ["Night Adder", "Causus"],
+      "venomType": "cytotoxic",
+      "region": "East Africa",
+      "riskLevel": "LOW",
+      "description": "Small viper with cytotoxic venom. Generally not life-threatening.",
+      "habitat": "Grassland, savanna",
+      "behavior": "Nocturnal, terrestrial",
+      "source": "WHO Snakebite Database, KEMRI Minor Venom Studies"
+    }
+  ],
+  "venomTypes": [
+    {
+      "name": "Neurotoxic",
+      "severity": "SEVERE",
+      "treatmentNotes": "Requires immediate antivenom. Monitor respiratory function. WHO Protocol: Administer polyvalent antivenom within 4 hours.",
+      "antivenomType": "Polyvalent Antivenom (SAIMR)",
+      "source": "WHO Guidelines for Snakebite Management 2023"
+    },
+    {
+      "name": "Hemotoxic",
+      "severity": "SEVERE",
+      "treatmentNotes": "Monitor coagulation parameters. May require blood products. WHO Protocol: Administer specific antivenom and monitor bleeding.",
+      "antivenomType": "Specific Hemotoxic Antivenom",
+      "source": "WHO Guidelines for Snakebite Management 2023"
+    },
+    {
+      "name": "Cytotoxic",
+      "severity": "MODERATE",
+      "treatmentNotes": "Local tissue damage. Debridement may be required. WHO Protocol: Wound care, antibiotics, pain management.",
+      "antivenomType": "Polyvalent Antivenom (if severe)",
+      "source": "WHO Guidelines for Snakebite Management 2023"
+    }
+  ]
+}

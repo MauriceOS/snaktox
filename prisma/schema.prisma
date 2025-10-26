@@ -1,0 +1,261 @@
+// SnaKTox Database Schema
+// Author: Maurice Osoro
+// Data Sources: WHO, CDC, KEMRI
+// Version: 1.0
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Core snake species data from WHO/KEMRI verified sources
+model SnakeSpecies {
+  id             String    @id @default(cuid())
+  scientificName String    @unique @map("scientific_name")
+  commonName     String    @map("common_name")
+  localNames     String[]  @map("local_names") // Array of local language names
+  venomTypeId    String    @map("venom_type_id")
+  region         String    // Geographic region (e.g., "East Africa", "Kenya")
+  riskLevel      RiskLevel @map("risk_level")
+  imageUrl       String?   @map("image_url")
+  description    String?
+  habitat        String?
+  behavior       String?
+  source         String    // WHO, CDC, KEMRI attribution
+  lastVerified   DateTime  @map("last_verified") @default(now())
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  venomType      VenomType @relation(fields: [venomTypeId], references: [id])
+  sosReports     SOSReport[]
+
+  @@map("snake_species")
+}
+
+// Venom classification from medical literature
+model VenomType {
+  id            String   @id @default(cuid())
+  name          String   @unique // e.g., "Neurotoxic", "Hemotoxic", "Cytotoxic"
+  severity      Severity
+  treatmentNotes String  @map("treatment_notes") // WHO-approved treatment protocols
+  antivenomType String?  @map("antivenom_type") // Specific antivenom required
+  source        String   // Medical source attribution
+  lastVerified  DateTime @map("last_verified") @default(now())
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  snakeSpecies  SnakeSpecies[]
+
+  @@map("venom_types")
+}
+
+// Verified hospitals and health facilities
+model Hospital {
+  id              String      @id @default(cuid())
+  name            String
+  location        String      // Address
+  country         String      // Country code (e.g., "KE", "TZ", "UG")
+  coordinates     Json        // PostGIS coordinates {lat, lng}
+  verifiedStatus  VerifiedStatus @map("verified_status")
+  contactInfo     Json        @map("contact_info") // Phone, email, emergency contact
+  antivenomStock  Json        @map("antivenom_stock") // Available antivenoms
+  specialties     String[]    // Medical specialties
+  operatingHours  Json        @map("operating_hours")
+  emergencyServices Boolean   @map("emergency_services") @default(true)
+  source          String      // Ministry of Health, WHO verification
+  lastVerified    DateTime    @map("last_verified") @default(now())
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  // Relations
+  sosReports      SOSReport[]
+  stockUpdates    StockUpdate[]
+
+  @@map("hospitals")
+}
+
+// Emergency SOS reports from field responders
+model SOSReport {
+  id              String      @id @default(cuid())
+  gpsCoordinates  Json        @map("gps_coordinates") // {lat, lng}
+  imageUrl        String?     @map("image_url") // Snake photo for AI identification
+  timestamp       DateTime    @default(now())
+  responderId     String      @map("responder_id") // Field responder identifier
+  hospitalId      String?     @map("hospital_id") // Assigned hospital
+  snakeSpeciesId  String?     @map("snake_species_id") // AI-identified species
+  status          SOSStatus   @default(PENDING)
+  victimInfo      Json?       @map("victim_info") // Anonymized victim data
+  symptoms        String[]    // Reported symptoms
+  firstAidApplied String[]    @map("first_aid_applied") // First aid measures taken
+  notes           String?     // Additional notes
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  // Relations
+  hospital        Hospital?   @relation(fields: [hospitalId], references: [id])
+  snakeSpecies    SnakeSpecies? @relation(fields: [snakeSpeciesId], references: [id])
+
+  @@map("sos_reports")
+}
+
+// Antivenom stock tracking
+model StockUpdate {
+  id              String      @id @default(cuid())
+  hospitalId      String      @map("hospital_id")
+  antivenomType   String      @map("antivenom_type")
+  quantity        Int
+  expiryDate      DateTime    @map("expiry_date")
+  batchNumber     String?     @map("batch_number")
+  supplier        String?
+  status          StockStatus @default(AVAILABLE)
+  lastUpdated     DateTime    @map("last_updated") @default(now())
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  // Relations
+  hospital        Hospital    @relation(fields: [hospitalId], references: [id])
+
+  @@map("stock_updates")
+}
+
+// Educational content from WHO/CDC sources
+model EducationMaterial {
+  id              String      @id @default(cuid())
+  title           String
+  content         String      // HTML or markdown content
+  category        String      // "prevention", "first_aid", "treatment", "awareness"
+  language        String      @default("en")
+  source          String      // WHO, CDC, KEMRI attribution
+  author          String?     // Content author/translator
+  metadata        Json?       // Additional metadata (confidence, translations, etc.)
+  lastVerified    DateTime    @map("last_verified") @default(now())
+  isActive        Boolean     @map("is_active") @default(true)
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  @@map("education_materials")
+}
+
+// Analytics and system metrics
+model AnalyticsLog {
+  id              String      @id @default(cuid())
+  eventType       String      @map("event_type") // "sos_created", "hospital_contacted", "ai_detection"
+  metadata        Json        // Event-specific data
+  userId          String?     @map("user_id") // Anonymized user identifier
+  sessionId       String?     @map("session_id")
+  timestamp       DateTime    @default(now())
+  createdAt       DateTime    @default(now()) @map("created_at")
+
+  // Relations
+  user            User?       @relation(fields: [userId], references: [id])
+
+  @@map("analytics_logs")
+}
+
+// AI model tracking and validation
+model AIModel {
+  id                    String      @id @default(cuid())
+  name                  String      // "snake_classifier", "chatbot"
+  version               String
+  accuracy              Float       // Model accuracy percentage
+  trainingDataSource    String      @map("training_data_source") // WHO, KEMRI datasets
+  lastTrained           DateTime    @map("last_trained")
+  isActive              Boolean     @map("is_active") @default(true)
+  createdAt             DateTime    @default(now()) @map("created_at")
+  updatedAt             DateTime    @updatedAt @map("updated_at")
+
+  @@map("ai_models")
+}
+
+// User management for authentication and authorization
+model User {
+  id              String      @id @default(cuid())
+  email           String      @unique
+  username        String?     @unique
+  password        String      // Hashed password
+  firstName       String?     @map("first_name")
+  lastName        String?     @map("last_name")
+  phone           String?
+  profile         Json?       // User profile data
+  role            UserRole    @default(USER)
+  isVerified      Boolean     @map("is_verified") @default(false)
+  isActive        Boolean     @map("is_active") @default(true)
+  lastLoginAt     DateTime?   @map("last_login_at")
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  // Relations
+  sessions        UserSession[]
+  analyticsLogs   AnalyticsLog[]
+
+  @@map("users")
+}
+
+// User sessions for authentication tracking
+model UserSession {
+  id              String      @id @default(cuid())
+  userId          String      @map("user_id")
+  token           String      @unique
+  metadata        Json?       // Session metadata
+  expiresAt       DateTime    @map("expires_at")
+  isActive        Boolean     @map("is_active") @default(true)
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  // Relations
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_sessions")
+}
+
+// Enums
+enum RiskLevel {
+  LOW
+  MODERATE
+  HIGH
+  CRITICAL
+}
+
+enum Severity {
+  MILD
+  MODERATE
+  SEVERE
+  FATAL
+}
+
+enum VerifiedStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+  EXPIRED
+}
+
+enum SOSStatus {
+  PENDING
+  ASSIGNED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum StockStatus {
+  AVAILABLE
+  LOW_STOCK
+  OUT_OF_STOCK
+  EXPIRED
+  RECALLED
+}
+
+enum UserRole {
+  USER
+  HOSPITAL_ADMIN
+  SYSTEM_ADMIN
+  RESEARCHER
+  DOCTOR
+}
