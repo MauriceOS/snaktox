@@ -10,7 +10,7 @@ build/
 .next/
 out/
 
-# Environment variables
+# Environment variables - CRITICAL SECURITY
 .env
 .env.local
 .env.development.local
@@ -18,7 +18,10 @@ out/
 .env.production.local
 .env.*.local
 
-# API Keys and Secrets
+# Cursor AI rules - PROTECTED
+.cursorrules
+
+# API Keys and Secrets - PROTECTED
 *.key
 *.pem
 *.p12
@@ -45,11 +48,11 @@ pids/
 *.seed
 *.pid.lock
 
-# Coverage directory
+# Coverage directory used by tools like istanbul
 coverage/
 *.lcov
 
-# Test coverage
+# nyc test coverage
 .nyc_output
 
 # Dependency directories
@@ -59,32 +62,43 @@ jspm_packages/
 # TypeScript cache
 *.tsbuildinfo
 
-# Cache directories
+# Optional npm cache directory
 .npm
+
+# Optional eslint cache
 .eslintcache
+
+# Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
 .rts2_cache_es/
 .rts2_cache_umd/
 
-# REPL history
+# Optional REPL history
 .node_repl_history
 
-# Package files
+# Output of 'npm pack'
 *.tgz
+
+# Yarn Integrity file
 .yarn-integrity
 
-# Build caches
+# parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
 
-# Framework builds
+# Next.js build output
 .next
+
+# Nuxt.js build / generate output
 .nuxt
 dist
+
+# Gatsby files
+.cache/
 public
 
-# Storybook
+# Storybook build outputs
 .out
 .storybook-out
 
@@ -92,14 +106,14 @@ public
 tmp/
 temp/
 
-# Editor files
+# Editor directories and files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS files
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -111,10 +125,10 @@ Thumbs.db
 # Docker
 .dockerignore
 
-# Prisma migrations
+# Prisma
 prisma/migrations/
 
-# AI Model files
+# AI Model files (large)
 *.model
 *.pkl
 *.h5
@@ -124,6 +138,11 @@ models/
 test-results/
 playwright-report/
 test-results.xml
+
+# Internal Documentation - PRIVATE
+blueprint.md
+PROJECT_SOURCE_OF_TRUTH.md
+PROGRESS.md
 
 # Test files
 *.txt
