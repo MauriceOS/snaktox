@@ -235,4 +235,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**Copyright (c) 2025 Maurice Osoro and the SnaKTox team for public health and safety.**
+
+---
+
 *Built with ❤️ by Maurice Osoro and the SnaKTox team for public health and safety.*
