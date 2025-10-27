@@ -45,6 +45,22 @@ snaktox/
 └── .github/workflows/    # CI/CD pipelines
 ```
 
+## 📱 Screenshots
+
+### Desktop View
+![SnaKTox Homepage](docs/screenshots/desktop/homepage-hero.png)
+
+### Mobile View  
+![SnaKTox Mobile](docs/screenshots/mobile/mobile-homepage.png)
+
+### AI Snake Detection
+![Snake Identification](docs/screenshots/desktop/snake-identification.png)
+
+### Emergency SOS
+![Emergency Reporting](docs/screenshots/desktop/emergency-sos.png)
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites

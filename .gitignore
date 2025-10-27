@@ -149,3 +149,10 @@ PROGRESS.md
 test-*.png
 test-*.jpg
 test-*.jpeg
+
+# Allow professional screenshots
+!docs/screenshots/
+!docs/screenshots/*.png
+!docs/screenshots/*.jpg
+!docs/screenshots/*.jpeg
+!docs/screenshots/*.webp
