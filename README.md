@@ -47,17 +47,23 @@ snaktox/
 
 ## 📱 Screenshots
 
-### Desktop View
-![SnaKTox Homepage](docs/screenshots/desktop/homepage-hero.png)
+### Homepage - Light Theme
+![SnaKTox Homepage Light](docs/screenshots/desktop/homepage-light-theme.png)
 
-### Mobile View  
-![SnaKTox Mobile](docs/screenshots/mobile/mobile-homepage.png)
+### Homepage - Dark Theme
+![SnaKTox Homepage Dark](docs/screenshots/desktop/homepage-dark-theme.png)
 
 ### AI Snake Detection
-![Snake Identification](docs/screenshots/desktop/snake-identification.png)
+![Snake Identification](docs/screenshots/desktop/snake-identify-light-theme.png)
 
-### Emergency SOS
-![Emergency Reporting](docs/screenshots/desktop/emergency-sos.png)
+### Emergency Response
+![Emergency Response](docs/screenshots/desktop/emergency-resonse-light.png)
+
+### Hospitals Directory
+![Hospitals Directory](docs/screenshots/desktop/hospitals-light-theme.png)
+
+### Education Portal
+![Education Portal](docs/screenshots/desktop/education-page-dark.png)
 
 ---
 
