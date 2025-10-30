@@ -161,12 +161,12 @@ jobs:
           cd prisma
           npx prisma migrate deploy
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/snaktox_test
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 
       - name: Run database tests
         run: npm run test:db
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/snaktox_test
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 
   # Deploy to Staging (dev branch)
   deploy-staging:
