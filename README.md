@@ -198,33 +198,6 @@ Required environment variables are documented in `.env.example`. Never commit ac
 - Comprehensive test coverage
 - Security-first development
 
-## 📈 Roadmap
-
-### Phase 1: Core Backend & Database (2 months)
-- ✅ NestJS backend with Prisma ORM
-- ✅ PostgreSQL database with PostGIS
-- ✅ Verified seed data from WHO/CDC/KEMRI
-
-### Phase 2: Hospital & SOS Network (3 months)
-- 🔄 Real-time hospital updates
-- 🔄 SOS emergency reporting system
-- 🔄 GPS-based hospital routing
-
-### Phase 3: AI & Analytics Layer (3 months)
-- ⏳ Snake species detection models
-- ⏳ Analytics dashboard
-- ⏳ Performance monitoring
-
-### Phase 4: Education Portal & Mobile App (2 months)
-- ⏳ Public education portal
-- ⏳ Flutter mobile application
-- ⏳ Offline-first capabilities
-
-### Phase 5: National & Regional Scaling (4 months)
-- ⏳ Multi-country expansion
-- ⏳ NGO partnerships
-- ⏳ Government integration
-
 ## 📞 Support
 
 ### Emergency Contacts
