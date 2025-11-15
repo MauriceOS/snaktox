@@ -60,28 +60,47 @@ export class HospitalService {
   async findNearby(lat: number, lng: number, radius: number = 50) {
     this.logger.log(`Finding hospitals near coordinates: ${lat}, ${lng} within ${radius}km`);
     
-    // Using PostGIS for geospatial queries
-    const hospitals = await this.prisma.$queryRaw`
-      SELECT 
-        id, name, location, coordinates, "verifiedStatus", "contactInfo", 
-        "antivenomStock", specialties, "operatingHours", "emergencyServices",
-        ST_Distance(
-          ST_GeogFromText('POINT(' || (coordinates->>'lng')::float || ' ' || (coordinates->>'lat')::float || ')'),
-          ST_GeogFromText('POINT(${lng} ${lat})')
-        ) / 1000 as distance_km
-      FROM hospitals 
-      WHERE ST_DWithin(
-        ST_GeogFromText('POINT(' || (coordinates->>'lng')::float || ' ' || (coordinates->>'lat')::float || ')'),
-        ST_GeogFromText('POINT(${lng} ${lat})'),
-        ${radius * 1000}
-      )
-      AND "verifiedStatus" = 'VERIFIED'
-      ORDER BY distance_km ASC
-      LIMIT 20
-    `;
+    // MongoDB geospatial query using aggregation
+    // Get all verified hospitals and calculate distance client-side
+    const hospitals = await this.prisma.hospital.findMany({
+      where: {
+        verifiedStatus: 'VERIFIED',
+      },
+    });
 
-    this.logger.log(`Found ${(hospitals as any[]).length} hospitals within ${radius}km`);
-    return hospitals;
+    // Calculate distance and filter
+    const nearbyHospitals = hospitals
+      .map(hospital => {
+        const coords = hospital.coordinates as { lat: number; lng: number };
+        const distance = this.calculateDistance(lat, lng, coords.lat, coords.lng);
+        return {
+          ...hospital,
+          distance_km: distance,
+        };
+      })
+      .filter(hospital => hospital.distance_km <= radius)
+      .sort((a, b) => a.distance_km - b.distance_km)
+      .slice(0, 20);
+
+    this.logger.log(`Found ${nearbyHospitals.length} hospitals within ${radius}km`);
+    return nearbyHospitals;
+  }
+
+  // Haversine formula to calculate distance between two coordinates
+  private calculateDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
+    const R = 6371; // Earth's radius in km
+    const dLat = this.deg2rad(lat2 - lat1);
+    const dLng = this.deg2rad(lng2 - lng1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
+      Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  private deg2rad(deg: number): number {
+    return deg * (Math.PI / 180);
   }
 
   async create(createHospitalDto: CreateHospitalDto) {

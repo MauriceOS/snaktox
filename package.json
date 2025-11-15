@@ -14,13 +14,15 @@
     "lint": "nx run-many --target=lint --all",
     "lint:fix": "nx run-many --target=lint --all --fix",
     "check:secrets": "trufflehog filesystem . --no-verification",
-    "db:generate": "cd prisma && npx prisma generate",
-    "db:push": "cd prisma && npx prisma db push",
-    "db:seed": "cd prisma && npx prisma db seed",
     "dev": "nx run-many --target=serve --all --parallel",
     "dev:backend": "nx serve backend",
     "dev:web": "nx serve web",
-    "dev:ai": "nx serve ai-service"
+    "dev:ai": "nx serve ai-service",
+    "dev:mobile": "cd mobile && flutter run",
+    "db:seed": "ts-node prisma/seed.ts",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
   },
   "devDependencies": {
     "@nx/eslint": "^17.0.0",
@@ -29,7 +31,7 @@
     "@nx/node": "^17.0.0",
     "@nx/workspace": "^17.0.0",
     "@types/jest": "^29.5.0",
-    "@types/node": "^20.19.23",
+    "@types/node": "^20.19.25",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
@@ -65,8 +67,11 @@
     "cdc",
     "kemri"
   ],
-  "dependencies": {},
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "mongodb": "^7.0.0"
   }
 }

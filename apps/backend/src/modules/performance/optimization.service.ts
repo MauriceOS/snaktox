@@ -42,81 +42,80 @@ export class OptimizationService {
     
     const optimizations = [];
 
-    // Check for slow queries
-    const slowQueries = await this.prisma.$queryRaw`
-      SELECT 
-        query,
-        calls,
-        total_time,
-        mean_time,
-        rows
-      FROM pg_stat_statements 
-      WHERE mean_time > 1000
-      ORDER BY mean_time DESC 
-      LIMIT 5
-    `;
+    // Check for slow queries using analytics logs
+    const slowQueries = await this.prisma.analyticsLog.findMany({
+      where: {
+        eventType: 'database_query',
+        timestamp: {
+          gte: new Date(Date.now() - 24 * 60 * 60 * 1000), // Last 24 hours
+        },
+        metadata: {
+          path: ['duration'],
+          gte: 1000, // Queries slower than 1 second
+        },
+      },
+      take: 5,
+      orderBy: {
+        timestamp: 'desc',
+      },
+    });
 
-    if ((slowQueries as any[]).length > 0) {
+    if (slowQueries.length > 0) {
       optimizations.push({
         type: 'slow_queries',
         priority: 'high',
         title: 'Optimize Slow Queries',
-        description: `${(slowQueries as any[]).length} queries are taking longer than 1 second on average`,
+        description: `${slowQueries.length} queries are taking longer than 1 second`,
         impact: 'Significantly improve response times',
         action: 'Add database indexes and optimize query structure',
-        queries: slowQueries,
+        queries: slowQueries.map(q => ({
+          query: q.metadata['queryName'],
+          duration: q.metadata['duration'],
+          timestamp: q.timestamp,
+        })),
       });
     }
 
-    // Check for missing indexes
-    const missingIndexes = await this.prisma.$queryRaw`
-      SELECT 
-        schemaname,
-        tablename,
-        attname,
-        n_distinct,
-        correlation
-      FROM pg_stats 
-      WHERE schemaname = 'public' 
-        AND n_distinct > 100 
-        AND correlation < 0.1
-      LIMIT 10
-    `;
+    // Check for index recommendations based on collection sizes
+    const collectionStats = await Promise.all([
+      this.prisma.snakeSpecies.count(),
+      this.prisma.hospital.count(),
+      this.prisma.sOSReport.count(),
+      this.prisma.educationMaterial.count(),
+    ]);
 
-    if ((missingIndexes as any[]).length > 0) {
+    const largeCollections = collectionStats.filter(count => count > 1000);
+    
+    if (largeCollections.length > 0) {
       optimizations.push({
         type: 'missing_indexes',
         priority: 'medium',
-        title: 'Add Missing Indexes',
-        description: `${(missingIndexes as any[]).length} columns could benefit from indexes`,
+        title: 'Review MongoDB Indexes',
+        description: `${largeCollections.length} collections have significant data volumes`,
         impact: 'Improve query performance and reduce load times',
-        action: 'Create indexes on frequently queried columns',
-        columns: missingIndexes,
+        action: 'Ensure proper indexes exist on frequently queried fields',
+        collections: ['snakeSpecies', 'hospitals', 'sosReports', 'educationMaterials'],
       });
     }
 
-    // Check for table bloat
-    const tableBloat = await this.prisma.$queryRaw`
-      SELECT 
-        schemaname,
-        tablename,
-        n_dead_tup,
-        n_live_tup,
-        ROUND((n_dead_tup::float / NULLIF(n_live_tup, 0)) * 100, 2) as dead_tuple_percentage
-      FROM pg_stat_user_tables 
-      WHERE n_dead_tup > 1000
-      ORDER BY dead_tuple_percentage DESC
-    `;
+    // MongoDB doesn't need VACUUM, but we can suggest cleanup of old analytics logs
+    const oldLogsCount = await this.prisma.analyticsLog.count({
+      where: {
+        timestamp: {
+          lt: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000), // Older than 90 days
+        },
+      },
+    });
 
-    if ((tableBloat as any[]).length > 0) {
+    if (oldLogsCount > 10000) {
       optimizations.push({
-        type: 'table_bloat',
+        type: 'data_cleanup',
         priority: 'medium',
-        title: 'Reduce Table Bloat',
-        description: `${(tableBloat as any[]).length} tables have significant dead tuples`,
+        title: 'Clean Up Old Analytics Logs',
+        description: `${oldLogsCount} analytics logs are older than 90 days`,
         impact: 'Improve database performance and reduce storage usage',
-        action: 'Run VACUUM and ANALYZE on affected tables',
-        tables: tableBloat,
+        action: 'Archive or delete old analytics logs',
+        oldLogsCount,
       });
     }
 
@@ -336,11 +335,18 @@ export class OptimizationService {
     this.logger.log('Optimizing database');
     
     try {
-      // Run VACUUM and ANALYZE
-      await this.prisma.$executeRaw`VACUUM ANALYZE`;
+      // For MongoDB, we focus on query optimization and data cleanup
+      // MongoDB handles compaction automatically, unlike PostgreSQL's VACUUM
       
-      // Update table statistics
-      await this.prisma.$executeRaw`ANALYZE`;
+      // Clean up old analytics logs (older than 90 days)
+      const ninetyDaysAgo = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
+      await this.prisma.analyticsLog.deleteMany({
+        where: {
+          timestamp: {
+            lt: ninetyDaysAgo,
+          },
+        },
+      });
       
       this.logger.log('Database optimization completed');
     } catch (error) {

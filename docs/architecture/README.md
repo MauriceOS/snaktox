@@ -25,7 +25,7 @@ graph TB
     end
     
     subgraph "Data Layer"
-        DB[(PostgreSQL + PostGIS)]
+        DB[(MongoDB)]
         REDIS[(Redis Cache)]
         STORAGE[File Storage]
     end
@@ -59,7 +59,7 @@ graph TB
 ### Backend
 - **NestJS**: Scalable Node.js framework
 - **Prisma ORM**: Type-safe database access
-- **PostgreSQL**: Primary database with PostGIS extension
+- **MongoDB**: Primary NoSQL database with geospatial support
 - **Redis**: Caching and session storage
 - **Winston**: Structured logging
 

@@ -1,2 +1,4 @@
--- Enable PostGIS extension
-CREATE EXTENSION IF NOT EXISTS postgis;
+-- MongoDB initialization is handled by Prisma db push
+-- This file is kept for reference and historical purposes
+-- Database schema is defined in schema.prisma
+-- Run: npm run db:push to initialize the MongoDB database

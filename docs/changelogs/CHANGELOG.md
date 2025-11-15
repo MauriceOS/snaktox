@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial project structure and monorepo setup
 - NestJS backend with modular architecture
-- Prisma database schema with PostGIS support
+- Prisma database schema with MongoDB geospatial support
 - Verified seed data from WHO, CDC, and KEMRI sources
 - CI/CD pipeline with security scanning
 - Docker containerization setup
@@ -64,7 +64,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Infrastructure**
   - Docker Compose for development
-  - PostgreSQL with PostGIS extension
+  - MongoDB with geospatial indexing
   - Redis for caching and sessions
   - Multi-service architecture
   - Health checks and monitoring

@@ -104,28 +104,56 @@ export class SosService {
   async findNearby(lat: number, lng: number, radius: number = 50) {
     this.logger.log(`Finding SOS reports near coordinates: ${lat}, ${lng} within ${radius}km`);
     
-    // Using PostGIS for geospatial queries
-    const nearbyReports = await this.prisma.$queryRaw`
-      SELECT 
-        id, "gpsCoordinates", "imageUrl", timestamp, "responderId", "hospitalId", 
-        "snakeSpeciesId", status, "victimInfo", symptoms, "firstAidApplied", notes,
-        ST_Distance(
-          ST_GeogFromText('POINT(' || (gps_coordinates->>'lng')::float || ' ' || (gps_coordinates->>'lat')::float || ')'),
-          ST_GeogFromText('POINT(${lng} ${lat})')
-        ) / 1000 as distance_km
-      FROM sos_reports 
-      WHERE ST_DWithin(
-        ST_GeogFromText('POINT(' || (gps_coordinates->>'lng')::float || ' ' || (gps_coordinates->>'lat')::float || ')'),
-        ST_GeogFromText('POINT(${lng} ${lat})'),
-        ${radius * 1000}
-      )
-      AND status IN ('PENDING', 'ASSIGNED', 'IN_PROGRESS')
-      ORDER BY distance_km ASC, timestamp DESC
-      LIMIT 20
-    `;
+    // MongoDB geospatial query - get active reports and calculate distance client-side
+    const reports = await this.prisma.sOSReport.findMany({
+      where: {
+        status: {
+          in: ['PENDING', 'ASSIGNED', 'IN_PROGRESS'],
+        },
+      },
+      orderBy: {
+        timestamp: 'desc',
+      },
+    });
 
-    this.logger.log(`Found ${(nearbyReports as any[]).length} nearby SOS reports within ${radius}km`);
+    // Calculate distance and filter
+    const nearbyReports = reports
+      .map(report => {
+        const coords = report.gpsCoordinates as { lat: number; lng: number };
+        const distance = this.calculateDistance(lat, lng, coords.lat, coords.lng);
+        return {
+          ...report,
+          distance_km: distance,
+        };
+      })
+      .filter(report => report.distance_km <= radius)
+      .sort((a, b) => {
+        if (a.distance_km !== b.distance_km) {
+          return a.distance_km - b.distance_km;
+        }
+        return b.timestamp.getTime() - a.timestamp.getTime();
+      })
+      .slice(0, 20);
+
+    this.logger.log(`Found ${nearbyReports.length} nearby SOS reports within ${radius}km`);
     return nearbyReports;
+  }
+
+  // Haversine formula to calculate distance between two coordinates
+  private calculateDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
+    const R = 6371; // Earth's radius in km
+    const dLat = this.deg2rad(lat2 - lat1);
+    const dLng = this.deg2rad(lng2 - lng1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
+      Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  private deg2rad(deg: number): number {
+    return deg * (Math.PI / 180);
   }
 
   async getStatistics(startDate?: string, endDate?: string) {
@@ -403,22 +431,32 @@ export class SosService {
   private async findNearestHospital(lat: number, lng: number) {
     this.logger.log(`Finding nearest hospital to coordinates: ${lat}, ${lng}`);
     
-    const nearestHospital = await this.prisma.$queryRaw`
-      SELECT 
-        id, name, location, coordinates, "verifiedStatus", "contactInfo", 
-        "antivenomStock", specialties, "emergencyServices",
-        ST_Distance(
-          ST_GeogFromText('POINT(' || (coordinates->>'lng')::float || ' ' || (coordinates->>'lat')::float || ')'),
-          ST_GeogFromText('POINT(${lng} ${lat})')
-        ) / 1000 as distance_km
-      FROM hospitals 
-      WHERE "verifiedStatus" = 'VERIFIED'
-      AND "emergencyServices" = true
-      ORDER BY distance_km ASC
-      LIMIT 1
-    `;
+    // Get all verified hospitals with emergency services
+    const hospitals = await this.prisma.hospital.findMany({
+      where: {
+        verifiedStatus: 'VERIFIED',
+        emergencyServices: true,
+      },
+    });
 
-    return nearestHospital[0] || null;
+    if (hospitals.length === 0) {
+      return null;
+    }
+
+    // Calculate distance to each hospital and find the nearest
+    const hospitalsWithDistance = hospitals.map(hospital => {
+      const coords = hospital.coordinates as { lat: number; lng: number };
+      const distance = this.calculateDistance(lat, lng, coords.lat, coords.lng);
+      return {
+        ...hospital,
+        distance_km: distance,
+      };
+    });
+
+    // Sort by distance and return the nearest
+    hospitalsWithDistance.sort((a, b) => a.distance_km - b.distance_km);
+    
+    return hospitalsWithDistance[0] || null;
   }
 
   private async sendEmergencyNotifications(sosReport: any) {

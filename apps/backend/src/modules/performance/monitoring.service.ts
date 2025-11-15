@@ -242,13 +242,14 @@ export class MonitoringService {
   private async checkDatabaseHealth() {
     try {
       const startTime = Date.now();
-      await this.prisma.$queryRaw`SELECT 1`;
+      // Simple health check for MongoDB via Prisma
+      await this.prisma.analyticsLog.findFirst();
       const responseTime = Date.now() - startTime;
 
       return {
         status: 'healthy',
         responseTime,
-        connections: await this.getDatabaseConnections(),
+        connections: 1, // Prisma manages connection pooling for MongoDB
         lastChecked: new Date().toISOString(),
       };
     } catch (error) {
@@ -261,16 +262,9 @@ export class MonitoringService {
   }
 
   private async getDatabaseConnections() {
-    try {
-      const result = await this.prisma.$queryRaw`
-        SELECT count(*) as total_connections
-        FROM pg_stat_activity 
-        WHERE datname = current_database()
-      `;
-      return result[0].total_connections;
-    } catch (error) {
-      return 0;
-    }
+    // MongoDB with Prisma uses connection pooling
+    // Return a fixed value since we can't query pg_stat_activity
+    return 1;
   }
 
   private calculateHealthScore(systemMetrics: any, applicationMetrics: any, databaseHealth: any): number {

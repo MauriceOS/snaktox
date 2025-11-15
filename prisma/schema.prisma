@@ -8,17 +8,17 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 // Core snake species data from WHO/KEMRI verified sources
 model SnakeSpecies {
-  id             String    @id @default(cuid())
+  id             String    @id @map("_id") @default(auto()) @db.ObjectId
   scientificName String    @unique @map("scientific_name")
   commonName     String    @map("common_name")
   localNames     String[]  @map("local_names") // Array of local language names
-  venomTypeId    String    @map("venom_type_id")
+  venomTypeId    String    @map("venom_type_id") @db.ObjectId
   region         String    // Geographic region (e.g., "East Africa", "Kenya")
   riskLevel      RiskLevel @map("risk_level")
   imageUrl       String?   @map("image_url")
@@ -39,7 +39,7 @@ model SnakeSpecies {
 
 // Venom classification from medical literature
 model VenomType {
-  id            String   @id @default(cuid())
+  id            String   @id @map("_id") @default(auto()) @db.ObjectId
   name          String   @unique // e.g., "Neurotoxic", "Hemotoxic", "Cytotoxic"
   severity      Severity
   treatmentNotes String  @map("treatment_notes") // WHO-approved treatment protocols
@@ -57,11 +57,11 @@ model VenomType {
 
 // Verified hospitals and health facilities
 model Hospital {
-  id              String      @id @default(cuid())
+  id              String      @id @map("_id") @default(auto()) @db.ObjectId
   name            String
   location        String      // Address
   country         String      // Country code (e.g., "KE", "TZ", "UG")
-  coordinates     Json        // PostGIS coordinates {lat, lng}
+  coordinates     Json        // Geographic coordinates {lat, lng}
   verifiedStatus  VerifiedStatus @map("verified_status")
   contactInfo     Json        @map("contact_info") // Phone, email, emergency contact
   antivenomStock  Json        @map("antivenom_stock") // Available antivenoms
@@ -82,13 +82,13 @@ model Hospital {
 
 // Emergency SOS reports from field responders
 model SOSReport {
-  id              String      @id @default(cuid())
+  id              String      @id @map("_id") @default(auto()) @db.ObjectId
   gpsCoordinates  Json        @map("gps_coordinates") // {lat, lng}
   imageUrl        String?     @map("image_url") // Snake photo for AI identification
   timestamp       DateTime    @default(now())
   responderId     String      @map("responder_id") // Field responder identifier
-  hospitalId      String?     @map("hospital_id") // Assigned hospital
-  snakeSpeciesId  String?     @map("snake_species_id") // AI-identified species
+  hospitalId      String?     @map("hospital_id") @db.ObjectId // Assigned hospital
+  snakeSpeciesId  String?     @map("snake_species_id") @db.ObjectId // AI-identified species
   status          SOSStatus   @default(PENDING)
   victimInfo      Json?       @map("victim_info") // Anonymized victim data
   symptoms        String[]    // Reported symptoms
@@ -106,8 +106,8 @@ model SOSReport {
 
 // Antivenom stock tracking
 model StockUpdate {
-  id              String      @id @default(cuid())
-  hospitalId      String      @map("hospital_id")
+  id              String      @id @map("_id") @default(auto()) @db.ObjectId
+  hospitalId      String      @map("hospital_id") @db.ObjectId
   antivenomType   String      @map("antivenom_type")
   quantity        Int
   expiryDate      DateTime    @map("expiry_date")
@@ -126,7 +126,7 @@ model StockUpdate {
 
 // Educational content from WHO/CDC sources
 model EducationMaterial {
-  id              String      @id @default(cuid())
+  id              String      @id @map("_id") @default(auto()) @db.ObjectId
   title           String
   content         String      // HTML or markdown content
   category        String      // "prevention", "first_aid", "treatment", "awareness"
@@ -144,10 +144,10 @@ model EducationMaterial {
 
 // Analytics and system metrics
 model AnalyticsLog {
-  id              String      @id @default(cuid())
+  id              String      @id @map("_id") @default(auto()) @db.ObjectId
   eventType       String      @map("event_type") // "sos_created", "hospital_contacted", "ai_detection"
   metadata        Json        // Event-specific data
-  userId          String?     @map("user_id") // Anonymized user identifier
+  userId          String?     @map("user_id") @db.ObjectId // Anonymized user identifier
   sessionId       String?     @map("session_id")
   timestamp       DateTime    @default(now())
   createdAt       DateTime    @default(now()) @map("created_at")
@@ -160,7 +160,7 @@ model AnalyticsLog {
 
 // AI model tracking and validation
 model AIModel {
-  id                    String      @id @default(cuid())
+  id                    String      @id @map("_id") @default(auto()) @db.ObjectId
   name                  String      // "snake_classifier", "chatbot"
   version               String
   accuracy              Float       // Model accuracy percentage
@@ -175,7 +175,7 @@ model AIModel {
 
 // User management for authentication and authorization
 model User {
-  id              String      @id @default(cuid())
+  id              String      @id @map("_id") @default(auto()) @db.ObjectId
   email           String      @unique
   username        String?     @unique
   password        String      // Hashed password
@@ -199,8 +199,8 @@ model User {
 
 // User sessions for authentication tracking
 model UserSession {
-  id              String      @id @default(cuid())
-  userId          String      @map("user_id")
+  id              String      @id @map("_id") @default(auto()) @db.ObjectId
+  userId          String      @map("user_id") @db.ObjectId
   token           String      @unique
   metadata        Json?       // Session metadata
   expiresAt       DateTime    @map("expires_at")

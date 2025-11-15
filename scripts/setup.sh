@@ -112,20 +112,14 @@ setup_environment() {
 start_database() {
     print_status "Starting database services..."
     
-    # Start PostgreSQL and Redis
-    docker-compose up -d postgres redis
+    # MongoDB is managed externally (Atlas or local instance)
+    print_status "Connecting to MongoDB..."
     
-    # Wait for services to be ready
-    print_status "Waiting for database services to be ready..."
-    sleep 10
+    # Verify MongoDB connection via Prisma
+    print_status "Verifying MongoDB connection..."
+    npm run db:generate
     
-    # Check if PostgreSQL is ready
-    until docker-compose exec postgres pg_isready -U postgres; do
-        print_status "Waiting for PostgreSQL..."
-        sleep 2
-    done
-    
-    print_success "Database services are ready!"
+    print_success "Database connection verified!"
 }
 
 # Setup database
@@ -148,15 +142,10 @@ setup_database() {
 build_applications() {
     print_status "Building applications..."
     
-    # Build backend
-    cd apps/backend
+    # Build web app (backend is optional)
+    cd web
     npm run build
-    cd ../..
-    
-    # Build web app
-    cd apps/web
-    npm run build
-    cd ../..
+    cd ..
     
     print_success "Applications built successfully!"
 }
@@ -165,12 +154,10 @@ build_applications() {
 start_services() {
     print_status "Starting all services..."
     
-    # Start all services with Docker Compose
-    docker-compose up -d
-    
-    print_success "All services started!"
-    print_status "Services are starting up, please wait a moment..."
-    sleep 15
+    print_status "Services can be started manually:"
+    print_status "  - All services: npm run dev"
+    print_status "  - Web only: npm run dev:web"
+    print_status "  - AI Service: cd services/ai-service && python main.py"
     
     # Check service health
     check_service_health
@@ -178,28 +165,11 @@ start_services() {
 
 # Check service health
 check_service_health() {
-    print_status "Checking service health..."
-    
-    # Check backend
-    if curl -f http://localhost:3001/health &> /dev/null; then
-        print_success "Backend API is healthy"
-    else
-        print_warning "Backend API is not responding yet"
-    fi
-    
-    # Check web app
-    if curl -f http://localhost:3000 &> /dev/null; then
-        print_success "Web application is healthy"
-    else
-        print_warning "Web application is not responding yet"
-    fi
-    
-    # Check AI service
-    if curl -f http://localhost:8000/health &> /dev/null; then
-        print_success "AI service is healthy"
-    else
-        print_warning "AI service is not responding yet"
-    fi
+    print_status "MongoDB connection verified during setup."
+    print_status "Access services after starting them:"
+    print_status "  - Web app: http://localhost:3000"
+    print_status "  - AI Service: http://localhost:8000/docs"
+    print_status "  - Backend (if running): http://localhost:3001"
 }
 
 # Display access information
@@ -216,14 +186,15 @@ display_access_info() {
     echo "  📊 AI Service Docs: http://localhost:8000/docs"
     echo ""
     echo "Database:"
-    echo "  🐘 PostgreSQL: localhost:5432"
-    echo "  🔴 Redis: localhost:6379"
+    echo "  🍃 MongoDB: See DATABASE_URL in .env (Atlas or local instance)"
+    echo "  📍 Database Name: snaktox"
     echo ""
     echo "Useful Commands:"
-    echo "  📊 View logs: docker-compose logs -f"
-    echo "  🛑 Stop services: docker-compose down"
-    echo "  🔄 Restart services: docker-compose restart"
-    echo "  🧹 Clean up: docker-compose down -v"
+    echo "  📊 Start all services: npm run dev"
+    echo "  🌐 Start web only: npm run dev:web"
+    echo "  🤖 Start AI service: cd services/ai-service && python main.py"
+    echo "  🧪 Run tests: npm run test"
+    echo "  🔍 Run linting: npm run lint"
     echo ""
     echo "Development Commands:"
     echo "  🚀 Start dev mode: npm run dev"

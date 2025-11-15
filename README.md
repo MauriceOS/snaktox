@@ -22,7 +22,7 @@ To save lives by combining verified medical data, artificial intelligence, and c
 
 ### Tech Stack
 - **Frontend**: Next.js 14 + Tailwind CSS + ShadCN/UI
-- **Backend**: NestJS + Prisma ORM + PostgreSQL + PostGIS
+- **Backend**: NestJS + Prisma ORM + MongoDB
 - **AI Service**: Python FastAPI + Machine Learning models
 - **Mobile**: Flutter (Phase 4)
 - **Infrastructure**: Docker + GitHub Actions CI/CD
@@ -72,7 +72,7 @@ snaktox/
 ### Prerequisites
 - Node.js 18+ and npm 8+
 - Docker and Docker Compose
-- PostgreSQL 15+ with PostGIS extension
+- MongoDB 7+ (MongoDB Atlas or local instance)
 
 ### Development Setup
 

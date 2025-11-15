@@ -7,8 +7,8 @@ export class HealthService {
 
   async check() {
     try {
-      // Check database connection
-      await this.prisma.$queryRaw`SELECT 1`;
+      // Check database connection using simple Prisma query
+      await this.prisma.analyticsLog.findFirst();
       
       return {
         status: 'ok',
@@ -31,7 +31,7 @@ export class HealthService {
   async ready() {
     try {
       // Check if all required services are ready
-      await this.prisma.$queryRaw`SELECT 1`;
+      await this.prisma.analyticsLog.findFirst();
       
       return {
         status: 'ready',
