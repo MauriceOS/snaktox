@@ -19,7 +19,6 @@ describe('HospitalService', () => {
               findUnique: jest.fn(),
               create: jest.fn(),
             },
-            $queryRaw: jest.fn(),
           },
         },
       ],
@@ -151,12 +150,20 @@ describe('HospitalService', () => {
         },
       ];
 
-      jest.spyOn(prismaService, '$queryRaw').mockResolvedValue(mockNearbyHospitals);
+      // Mock hospital.findMany since findNearby now uses it instead of $queryRaw
+      jest.spyOn(prismaService.hospital, 'findMany').mockResolvedValue([
+        {
+          id: '1',
+          name: 'Nearby Hospital',
+          coordinates: { lat: -1.3048, lng: 36.8156 },
+          verifiedStatus: 'VERIFIED' as any,
+        } as any,
+      ]);
 
       const result = await service.findNearby(-1.3048, 36.8156, 50);
 
-      expect(result).toEqual(mockNearbyHospitals);
-      expect(prismaService.$queryRaw).toHaveBeenCalled();
+      expect(result.length).toBeGreaterThan(0);
+      expect(prismaService.hospital.findMany).toHaveBeenCalled();
     });
   });
 

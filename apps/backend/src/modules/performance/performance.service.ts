@@ -272,7 +272,7 @@ export class PerformanceService {
         metadata: {
           path: ['severity'],
           equals: 'critical',
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -282,7 +282,7 @@ export class PerformanceService {
         metadata: {
           path: ['status'],
           equals: 'resolved',
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 

@@ -38,7 +38,7 @@ export class ContentLocalizationService {
         metadata: {
           path: ['translationMethod'],
           equals: 'automated',
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -189,7 +189,7 @@ export class ContentLocalizationService {
         metadata: {
           path: ['translationMethod'],
           equals: 'automated',
-        },
+        } as any, // MongoDB compatibility fix
         isActive: true,
       },
       select: {

@@ -5,6 +5,7 @@ import { PrismaService } from '../../common/prisma/prisma.service';
 import { SnakeDetectionDto } from './dto/snake-detection.dto';
 import { ChatbotQueryDto } from './dto/chatbot-query.dto';
 import { first } from 'rxjs/operators';
+import * as FormData from 'form-data';
 
 @Injectable()
 export class AiService {
@@ -23,9 +24,12 @@ export class AiService {
     this.logger.log('Processing snake species detection from file upload');
     
     try {
-      // Create FormData for file upload to AI service
+      // Create FormData for file upload to AI service using form-data package
       const formData = new FormData();
-      formData.append('image', new Blob([new Uint8Array(file.buffer)], { type: file.mimetype }), file.originalname);
+      formData.append('image', Buffer.from(file.buffer), {
+        filename: file.originalname,
+        contentType: file.mimetype,
+      });
       formData.append('userId', userId);
       formData.append('sessionId', sessionId);
       if (location) {
@@ -33,17 +37,30 @@ export class AiService {
       }
 
       // Call Python FastAPI AI service upload endpoint
-      const response = await this.httpService.post(`${this.aiServiceUrl}/api/v1/upload-and-detect`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }).pipe(first()).toPromise();
+      // form-data package provides headers with boundary automatically
+      this.logger.log(`Calling AI service for image detection: ${this.aiServiceUrl}/api/v1/upload-and-detect`);
+
+      const response = await this.httpService.post(
+        `${this.aiServiceUrl}/api/v1/upload-and-detect`,
+        formData,
+        {
+          headers: formData.getHeaders(),
+        }
+      ).pipe(first()).toPromise();
 
       const aiResult = (response as any).data;
       
+      this.logger.log(`AI service response received - success: ${aiResult?.success}, hasResult: ${!!aiResult?.result}`);
+      
       // Validate AI response
-      if (!aiResult.result || !aiResult.result.species || !aiResult.result.confidence) {
-        throw new Error('Invalid AI service response');
+      if (!aiResult || !aiResult.success) {
+        this.logger.error(`AI service returned error: ${aiResult?.error || 'Unknown error'}`);
+        throw new Error(aiResult?.error || 'Invalid AI service response');
+      }
+
+      if (!aiResult.result || !aiResult.result.species || aiResult.result.confidence === undefined) {
+        this.logger.error(`Invalid AI response structure: ${JSON.stringify(aiResult)}`);
+        throw new Error('Invalid AI service response structure');
       }
 
       const detectionResult = aiResult.result;
@@ -185,21 +202,35 @@ export class AiService {
   }
 
   async getFirstAidGuidance(chatbotQueryDto: ChatbotQueryDto) {
-    this.logger.log('Processing first aid guidance request');
+    this.logger.log(`Processing first aid guidance request: ${chatbotQueryDto.query}`);
     
     try {
       // Call Python FastAPI chatbot service
-      const response = await this.httpService.post(`${this.aiServiceUrl}/api/v1/chat`, {
+      const requestBody = {
         query: chatbotQueryDto.query,
-        context: chatbotQueryDto.context,
         language: chatbotQueryDto.language || 'en',
-      }).pipe(first()).toPromise();
+        user_id: chatbotQueryDto.userId || 'anonymous',
+        session_id: chatbotQueryDto.sessionId || 'session-001',
+        context: chatbotQueryDto.context || {},
+      };
+
+      this.logger.log(`Calling AI service: ${this.aiServiceUrl}/api/v1/chat`);
+
+      const response = await this.httpService.post(`${this.aiServiceUrl}/api/v1/chat`, requestBody).pipe(first()).toPromise();
 
       const aiResult = (response as any).data;
       
+      this.logger.log(`AI service response received - success: ${aiResult?.success}, hasResponse: ${!!aiResult?.response}`);
+      
       // Validate AI response
-      if (!aiResult.response || !aiResult.confidence) {
-        throw new Error('Invalid AI service response');
+      if (!aiResult || !aiResult.success) {
+        this.logger.error(`AI service returned error: ${aiResult?.error || 'Unknown error'}`);
+        throw new Error(aiResult?.error || 'Invalid AI service response');
+      }
+
+      if (!aiResult.response || aiResult.confidence === undefined) {
+        this.logger.error(`Invalid AI response structure: ${JSON.stringify(aiResult)}`);
+        throw new Error('Invalid AI service response structure');
       }
 
       // Get verified first aid data from database

@@ -167,7 +167,7 @@ export class CommunityService {
         metadata: {
           path: ['eventId'],
           equals: eventId,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -200,7 +200,7 @@ export class CommunityService {
         metadata: {
           path: ['eventId'],
           equals: eventId,
-        },
+        } as any, // MongoDB compatibility fix
       },
       orderBy: { timestamp: 'asc' },
     });
@@ -244,7 +244,7 @@ export class CommunityService {
         metadata: {
           path: ['postId'],
           equals: postId,
-        },
+        } as any, // MongoDB compatibility fix
       },
       orderBy: { timestamp: 'asc' },
     });

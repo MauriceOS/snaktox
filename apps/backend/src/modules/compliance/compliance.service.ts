@@ -108,7 +108,7 @@ export class ComplianceService {
         metadata: {
           path: ['isCompliant'],
           equals: true,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -145,7 +145,7 @@ export class ComplianceService {
         metadata: {
           path: ['countryCode'],
           equals: countryCode,
-        },
+        } as any, // MongoDB compatibility fix
         timestamp: {
           gte: startDate,
           lte: endDate,
@@ -159,7 +159,7 @@ export class ComplianceService {
         metadata: {
           path: ['countryCode'],
           equals: countryCode,
-        },
+        } as any, // MongoDB compatibility fix
         timestamp: {
           gte: startDate,
           lte: endDate,

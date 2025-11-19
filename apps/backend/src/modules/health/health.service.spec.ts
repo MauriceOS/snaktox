@@ -13,7 +13,9 @@ describe('HealthService', () => {
         {
           provide: PrismaService,
           useValue: {
-            $queryRaw: jest.fn(),
+            analyticsLog: {
+              findFirst: jest.fn(),
+            },
           },
         },
       ],
@@ -29,7 +31,7 @@ describe('HealthService', () => {
 
   describe('check', () => {
     it('should return healthy status when database is connected', async () => {
-      jest.spyOn(prismaService, '$queryRaw').mockResolvedValue([{ '?column?': 1 }]);
+      jest.spyOn(prismaService.analyticsLog, 'findFirst').mockResolvedValue(null);
 
       const result = await service.check();
 
@@ -40,7 +42,7 @@ describe('HealthService', () => {
     });
 
     it('should return error status when database is disconnected', async () => {
-      jest.spyOn(prismaService, '$queryRaw').mockRejectedValue(new Error('Connection failed'));
+      jest.spyOn(prismaService.analyticsLog, 'findFirst').mockRejectedValue(new Error('Connection failed'));
 
       const result = await service.check();
 
@@ -52,7 +54,7 @@ describe('HealthService', () => {
 
   describe('ready', () => {
     it('should return ready status when all services are ready', async () => {
-      jest.spyOn(prismaService, '$queryRaw').mockResolvedValue([{ '?column?': 1 }]);
+      jest.spyOn(prismaService.analyticsLog, 'findFirst').mockResolvedValue(null);
 
       const result = await service.ready();
 
@@ -63,7 +65,7 @@ describe('HealthService', () => {
     });
 
     it('should return not ready status when database is not ready', async () => {
-      jest.spyOn(prismaService, '$queryRaw').mockRejectedValue(new Error('Connection failed'));
+      jest.spyOn(prismaService.analyticsLog, 'findFirst').mockRejectedValue(new Error('Connection failed'));
 
       const result = await service.ready();
 

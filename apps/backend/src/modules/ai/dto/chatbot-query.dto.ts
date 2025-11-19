@@ -5,11 +5,11 @@ export class ChatbotQueryDto {
   @ApiProperty({ 
     description: 'User query for first aid guidance',
     example: 'What should I do if someone is bitten by a snake?',
-    minLength: 10,
+    minLength: 1,
     maxLength: 500
   })
   @IsString()
-  @MinLength(10)
+  @MinLength(1)
   @MaxLength(500)
   query: string;
 

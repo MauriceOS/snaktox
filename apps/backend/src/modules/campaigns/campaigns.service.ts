@@ -201,7 +201,7 @@ export class CampaignsService {
         metadata: {
           path: ['status'],
           equals: 'active',
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 

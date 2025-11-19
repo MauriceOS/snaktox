@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -18,14 +18,21 @@ interface EmergencyChatbotProps {
 }
 
 export function EmergencyChatbot({ className }: EmergencyChatbotProps) {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      text: 'Hello! I\'m your AI emergency assistant. I can help with snakebite first aid guidance, prevention tips, and emergency procedures. What would you like to know?',
-      isUser: false,
-      timestamp: new Date()
-    }
-  ])
+  const [messages, setMessages] = useState<Message[]>([])
+  const [isMounted, setIsMounted] = useState(false)
+
+  // Initialize welcome message only on client to avoid hydration mismatch
+  useEffect(() => {
+    setIsMounted(true)
+    setMessages([
+      {
+        id: '1',
+        text: 'Hello! I\'m your AI emergency assistant. I can help with snakebite first aid guidance, prevention tips, and emergency procedures. What would you like to know?',
+        isUser: false,
+        timestamp: new Date()
+      }
+    ])
+  }, [])
   const [inputText, setInputText] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
@@ -120,7 +127,11 @@ export function EmergencyChatbot({ className }: EmergencyChatbotProps) {
     setIsLoading(true)
 
     try {
-      const response = await fetch('http://localhost:3001/api/v1/ai/chat', {
+      // Use environment variable for API URL
+      // Default to port 3002 where backend is running
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3002/api/v1'
+      const baseUrl = apiUrl.replace(/\/api\/v1$/, '') || 'http://localhost:3002'
+      const response = await fetch(`${baseUrl}/api/v1/ai/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -134,10 +145,13 @@ export function EmergencyChatbot({ className }: EmergencyChatbotProps) {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to get response')
+        const errorData = await response.json().catch(() => ({ message: 'Unknown error' }))
+        console.error('Backend error:', errorData)
+        throw new Error(errorData.message || errorData.error || 'Failed to get response')
       }
 
       const data = await response.json()
+      console.log('Chatbot response:', data)
       
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -198,9 +212,11 @@ export function EmergencyChatbot({ className }: EmergencyChatbotProps) {
                 <div className="text-sm break-words space-y-2">
                   {formatMessageText(message.text)}
                 </div>
-                <p className="text-xs opacity-70 mt-1">
-                  {message.timestamp.toLocaleTimeString()}
-                </p>
+                {isMounted && (
+                  <p className="text-xs opacity-70 mt-1">
+                    {message.timestamp.toLocaleTimeString()}
+                  </p>
+                )}
               </div>
               {message.isUser && (
                 <div className="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center flex-shrink-0">

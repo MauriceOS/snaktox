@@ -261,7 +261,7 @@ export class AuditService {
       where.metadata = {
         path: ['countryCode'],
         equals: countryCode,
-      };
+      } as any; // MongoDB compatibility fix
     }
 
     const audits = await this.prisma.analyticsLog.findMany({
@@ -288,7 +288,7 @@ export class AuditService {
       where.metadata = {
         path: ['countryCode'],
         equals: countryCode,
-      };
+      } as any; // MongoDB compatibility fix
     }
 
     const latestAudit = await this.prisma.analyticsLog.findFirst({

@@ -39,7 +39,6 @@ logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 lerna-debug.log*
 
 # Runtime data
@@ -144,11 +143,40 @@ blueprint.md
 PROJECT_SOURCE_OF_TRUTH.md
 PROGRESS.md
 
+# Troubleshooting Documentation - TEMPORARY (Don't commit)
+KILL_AND_RESTART.md
+QUICK_START.md
+COMMIT_PLAN.md
+GIT_COMMIT_COMMANDS.md
+MANUAL_COMMIT_STEPS.md
+PRE_COMMIT_CHECKLIST.md
+docs/AI_SERVICE_DEBUGGING.md
+docs/CHAT_FIX.md
+docs/LOGIN_CONFIGURATION.md
+docs/MONGODB_MIGRATION_COMPLETE.md
+docs/MONGODB_PRISMA_FIXES.md
+docs/MONGODB_REPLICA_SET_SETUP.md
+docs/PORT_CONFIGURATION.md
+docs/SNAKE_IDENTIFICATION_FIX.md
+
 # Test files
 *.txt
 test-*.png
 test-*.jpg
 test-*.jpeg
+
+# Python virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 
 # Allow professional screenshots
 !docs/screenshots/

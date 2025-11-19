@@ -62,7 +62,7 @@ export class MediaService {
         metadata: {
           path: ['category'],
           equals: category,
-        },
+        } as any, // MongoDB compatibility fix
       },
       orderBy: { timestamp: 'desc' },
     });

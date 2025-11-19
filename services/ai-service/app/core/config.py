@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     # Security
     SECRET_KEY: str = "snaktox-ai-secret-key-change-in-production"
     ALLOWED_HOSTS: List[str] = ["*"]
-    CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:3001"]
+    CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
     
     # External API Keys
     GEMINI_API_KEY: Optional[str] = None

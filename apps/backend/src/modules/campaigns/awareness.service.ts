@@ -85,7 +85,7 @@ export class AwarenessService {
         metadata: {
           path: ['status'],
           equals: 'active',
-        },
+        } as any, // MongoDB compatibility fix
       },
       orderBy: { timestamp: 'desc' },
     });
@@ -122,7 +122,7 @@ export class AwarenessService {
         metadata: {
           path: ['programId'],
           equals: programId,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -261,7 +261,7 @@ export class AwarenessService {
         metadata: {
           path: ['sessionId'],
           equals: sessionId,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -298,7 +298,7 @@ export class AwarenessService {
         metadata: {
           path: ['status'],
           equals: 'active',
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 

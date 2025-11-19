@@ -24,17 +24,28 @@ async function main() {
     const educationData = educationFile.educationMaterials || [];
 
     // Clear existing data (optional - use carefully in production)
+    // Note: For MongoDB, deleteMany operations don't require transactions
+    // If you get replica set errors, MongoDB needs to be configured as replica set
     console.log('🗑️ Clearing existing data...');
-    await prisma.sOSReport.deleteMany({});
-    await prisma.stockUpdate.deleteMany({});
-    await prisma.snakeSpecies.deleteMany({});
-    await prisma.hospital.deleteMany({});
-    await prisma.venomType.deleteMany({});
-    await prisma.educationMaterial.deleteMany({});
-    await prisma.analyticsLog.deleteMany({});
-    await prisma.aIModel.deleteMany({});
-    await prisma.userSession.deleteMany({});
-    await prisma.user.deleteMany({});
+    try {
+      await prisma.sOSReport.deleteMany({});
+      await prisma.stockUpdate.deleteMany({});
+      await prisma.snakeSpecies.deleteMany({});
+      await prisma.hospital.deleteMany({});
+      await prisma.venomType.deleteMany({});
+      await prisma.educationMaterial.deleteMany({});
+      await prisma.analyticsLog.deleteMany({});
+      await prisma.aIModel.deleteMany({});
+      await prisma.userSession.deleteMany({});
+      await prisma.user.deleteMany({});
+    } catch (error: any) {
+      if (error.code === 'P2031') {
+        console.warn('⚠️  MongoDB replica set not configured. Skipping data clearing.');
+        console.warn('   To fix: See docs/MONGODB_REPLICA_SET_SETUP.md');
+      } else {
+        throw error;
+      }
+    }
 
     // Seed VenomTypes first (required by SnakeSpecies)
     console.log('📝 Seeding venom types...');

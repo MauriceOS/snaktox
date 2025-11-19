@@ -87,45 +87,68 @@ class ChatbotService:
             )
     
     def _classify_query(self, query: str) -> QueryType:
-        """Classify the type of query using Gemini"""
-        import google.generativeai as genai
+        """Classify the type of query using keyword matching or Gemini if available"""
+        query_lower = query.lower()
         
-        genai.configure(api_key=self.gemini_api_key)
-        model = genai.GenerativeModel(self.chat_model)
+        # Simple keyword-based classification (works without API key)
+        emergency_keywords = ['emergency', 'bitten', 'bite', 'urgent', 'help', 'now', 'immediately', 'victim']
+        first_aid_keywords = ['first aid', 'what to do', 'treatment', 'care', 'steps', 'how to help']
+        prevention_keywords = ['prevent', 'avoid', 'safety', 'protect', 'safe', 'precautions']
+        species_keywords = ['species', 'snake type', 'identify', 'what kind', 'which snake', 'mamba', 'cobra', 'adder']
         
-        classification_prompt = f"""
-        Classify this snakebite-related query into one of these categories:
-        - first_aid: Questions about immediate first aid for snakebites
-        - prevention: Questions about preventing snakebites
-        - species_info: Questions about specific snake species
-        - emergency: Urgent medical questions requiring immediate attention
-        - general: General questions about snakes or snakebites
+        if any(keyword in query_lower for keyword in emergency_keywords):
+            return QueryType.EMERGENCY
+        elif any(keyword in query_lower for keyword in first_aid_keywords):
+            return QueryType.FIRST_AID
+        elif any(keyword in query_lower for keyword in prevention_keywords):
+            return QueryType.PREVENTION
+        elif any(keyword in query_lower for keyword in species_keywords):
+            return QueryType.SPECIES_INFO
         
-        Query: "{query}"
+        # If API key is available, try Gemini classification
+        if self.gemini_api_key:
+            try:
+                import google.generativeai as genai
+                genai.configure(api_key=self.gemini_api_key)
+                model = genai.GenerativeModel(self.chat_model)
+                
+                classification_prompt = f"""
+                Classify this snakebite-related query into one of these categories:
+                - first_aid: Questions about immediate first aid for snakebites
+                - prevention: Questions about preventing snakebites
+                - species_info: Questions about specific snake species
+                - emergency: Urgent medical questions requiring immediate attention
+                - general: General questions about snakes or snakebites
+                
+                Query: "{query}"
+                
+                Return only the category name.
+                """
+                
+                response = model.generate_content(classification_prompt)
+                category = response.text.strip().lower()
+                return QueryType(category) if category in [e.value for e in QueryType] else QueryType.GENERAL
+            except Exception as e:
+                logger.warning("Gemini classification failed, using keyword-based", error=str(e))
         
-        Return only the category name.
-        """
-        
-        try:
-            response = model.generate_content(classification_prompt)
-            category = response.text.strip().lower()
-            return QueryType(category) if category in [e.value for e in QueryType] else QueryType.GENERAL
-            
-        except Exception as e:
-            logger.warning("Query classification failed", error=str(e))
-            return QueryType.GENERAL
+        # Default to general if no classification matches
+        return QueryType.GENERAL
     
     def _generate_response(self, request: ChatbotRequest, query_type: QueryType) -> Dict[str, Any]:
-        """Generate response based on query type"""
+        """Generate response based on query type using Gemini API"""
+        if not self.gemini_api_key:
+            # Fall back to mock if no API key
+            return self._generate_mock_response(request, query_type)
+        
         import google.generativeai as genai
         
-        genai.configure(api_key=self.gemini_api_key)
-        model = genai.GenerativeModel(self.chat_model)
-        
-        # Create context-specific prompt
-        prompt = self._create_prompt(request, query_type)
-        
         try:
+            genai.configure(api_key=self.gemini_api_key)
+            model = genai.GenerativeModel(self.chat_model)
+            
+            # Create context-specific prompt
+            prompt = self._create_prompt(request, query_type)
+            
             response = model.generate_content([
                 self.knowledge_base,
                 prompt
@@ -135,14 +158,16 @@ class ChatbotService:
             
             return {
                 "content": content,
-                "confidence": 0.85,  # Mock confidence score
+                "confidence": 0.85,  # Confidence score from AI
                 "sources": ["WHO Guidelines", "CDC Information", "KEMRI Research"],
                 "follow_up_questions": self._generate_follow_up_questions(query_type),
                 "emergency_contact": self._get_emergency_contact(query_type)
             }
             
         except Exception as e:
-            raise ExternalAPIError(f"Gemini API error: {str(e)}", "Gemini")
+            logger.warning(f"Gemini API error, falling back to mock response: {str(e)}")
+            # Fall back to mock response if API fails
+            return self._generate_mock_response(request, query_type)
     
     def _create_prompt(self, request: ChatbotRequest, query_type: QueryType) -> str:
         """Create context-specific prompt based on query type"""

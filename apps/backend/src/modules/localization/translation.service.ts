@@ -357,7 +357,7 @@ export class TranslationService {
         metadata: {
           path: ['translationMethod'],
           equals: 'automated',
-        },
+        } as any, // MongoDB compatibility fix
       },
       select: {
         language: true,

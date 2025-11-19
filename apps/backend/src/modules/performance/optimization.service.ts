@@ -52,7 +52,7 @@ export class OptimizationService {
         metadata: {
           path: ['duration'],
           gte: 1000, // Queries slower than 1 second
-        },
+        } as any, // MongoDB compatibility fix
       },
       take: 5,
       orderBy: {

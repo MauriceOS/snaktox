@@ -262,7 +262,7 @@ export class LocalizationService {
         metadata: {
           path: ['translationMethod'],
           equals: 'automated',
-        },
+        } as any, // MongoDB compatibility fix
       },
       select: {
         id: true,

@@ -246,7 +246,7 @@ export class CacheService {
         metadata: {
           path: ['operation'],
           equals: 'hit',
-        },
+        } as any, // MongoDB compatibility fix
         timestamp: {
           gte: new Date(Date.now() - 24 * 60 * 60 * 1000),
         },
@@ -259,7 +259,7 @@ export class CacheService {
         metadata: {
           path: ['operation'],
           equals: 'miss',
-        },
+        } as any, // MongoDB compatibility fix
         timestamp: {
           gte: new Date(Date.now() - 24 * 60 * 60 * 1000),
         },

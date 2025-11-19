@@ -99,7 +99,7 @@ export class MonitoringService {
           path: ['statusCode'],
           gte: 200,
           lt: 300,
-        },
+        } as any, // MongoDB compatibility fix
         timestamp: {
           gte: new Date(Date.now() - 24 * 60 * 60 * 1000),
         },
@@ -148,7 +148,7 @@ export class MonitoringService {
         metadata: {
           path: ['responseTime'],
           not: null,
-        },
+        } as any, // MongoDB compatibility fix
         timestamp: {
           gte: new Date(Date.now() - 24 * 60 * 60 * 1000),
         },

@@ -443,7 +443,7 @@ export class RegulatoryService {
         metadata: {
           path: ['isCompliant'],
           equals: true,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 

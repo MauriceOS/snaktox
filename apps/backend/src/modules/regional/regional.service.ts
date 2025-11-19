@@ -154,7 +154,7 @@ export class RegionalService {
         metadata: {
           path: ['country'],
           equals: countryCode,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -180,7 +180,7 @@ export class RegionalService {
         metadata: {
           path: ['country'],
           equals: countryCode,
-        },
+        } as any, // MongoDB compatibility fix
       },
       select: {
         metadata: true,
@@ -216,7 +216,7 @@ export class RegionalService {
         metadata: {
           path: ['country'],
           equals: countryCode,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -226,7 +226,7 @@ export class RegionalService {
         metadata: {
           path: ['country'],
           equals: countryCode,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 

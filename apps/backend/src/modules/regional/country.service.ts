@@ -196,7 +196,7 @@ export class CountryService {
         profile: {
           path: ['country'],
           equals: code,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -206,7 +206,7 @@ export class CountryService {
         metadata: {
           path: ['country'],
           equals: code,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 

@@ -385,7 +385,7 @@ export class PartnershipService {
       where.metadata = {
         path: ['partnershipId'],
         equals: partnershipId,
-      };
+      } as any; // MongoDB compatibility fix
     }
 
     const meetings = await this.prisma.analyticsLog.findMany({

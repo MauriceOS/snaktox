@@ -169,16 +169,24 @@ export default function SnakeIdentificationPage() {
         formData.append('location', JSON.stringify(location))
       }
 
-      const response = await fetch('http://localhost:3001/api/v1/ai/upload-and-detect', {
+      // Use environment variable - NEXT_PUBLIC_API_URL should be the full backend URL
+      // Default to port 3002 where backend is running
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3002/api/v1'
+      // Remove /api/v1 if it's already in the URL, then add it back
+      const baseUrl = apiUrl.replace(/\/api\/v1$/, '') || 'http://localhost:3002'
+      const response = await fetch(`${baseUrl}/api/v1/ai/upload-and-detect`, {
         method: 'POST',
         body: formData
       })
 
       if (!response.ok) {
-        throw new Error('Analysis failed')
+        const errorData = await response.json().catch(() => ({ message: 'Unknown error' }))
+        console.error('Backend error:', errorData)
+        throw new Error(errorData.message || errorData.error || 'Analysis failed')
       }
 
       const result = await response.json()
+      console.log('Analysis result:', result)
       
       // Transform the result to match our interface
       const transformedResult: SnakeIdentification = {

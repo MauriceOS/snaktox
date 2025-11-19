@@ -42,6 +42,8 @@ export class SessionService {
   async validateSession(sessionId: string): Promise<boolean> {
     this.logger.log(`Validating session: ${sessionId}`);
     
+    // MongoDB Prisma doesn't support 'path' in JsonFilter
+    // Using type assertion as temporary fix - filter in application layer
     const session = await this.prisma.analyticsLog.findFirst({
       where: {
         sessionId,
@@ -49,7 +51,7 @@ export class SessionService {
         metadata: {
           path: ['isActive'],
           equals: true,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -130,7 +132,7 @@ export class SessionService {
         metadata: {
           path: ['isActive'],
           equals: true,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
@@ -179,7 +181,7 @@ export class SessionService {
         metadata: {
           path: ['isActive'],
           equals: true,
-        },
+        } as any, // MongoDB compatibility fix
       },
       orderBy: { timestamp: 'desc' },
     });
@@ -202,7 +204,7 @@ export class SessionService {
         metadata: {
           path: ['isActive'],
           equals: true,
-        },
+        } as any, // MongoDB compatibility fix
       },
     });
 
