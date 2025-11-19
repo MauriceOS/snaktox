@@ -2,7 +2,8 @@
 
 [![CI/CD Pipeline](https://github.com/mauriceosoro/snaktox/workflows/CI/badge.svg)](https://github.com/mauriceosoro/snaktox/actions)
 [![Security Scan](https://github.com/mauriceosoro/snaktox/workflows/Security%20Scan/badge.svg)](https://github.com/mauriceosoro/snaktox/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
+[![SnakTox PitchDeck](https://www.canva.com/design/DAG5I3gwMpI/u5Ux7n-80S9DYaCGNyY2NA/view?utm_content=DAG5I3gwMpI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha5be35fdd4)]
 
 ## 🐍 Project Overview
 
@@ -239,3 +240,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 © 2025 SnaKTox. All rights reserved. Medical data verified by WHO, CDC, and KEMRI.
+
+
+[def]: https://opensource.org/licenses/MIT
