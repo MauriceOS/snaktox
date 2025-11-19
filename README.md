@@ -7,7 +7,7 @@
 
 ## 🐍 Project Overview
 
-SnaKTox is a comprehensive, AI-powered platform dedicated to snakebite awareness, prevention, and emergency response. Built with verified medical data from WHO, CDC, and KEMRI, it bridges the gap between field responders, hospitals, and the public through a unified, secure system.
+SnaKTox is a comprehensive, AI-powered platform dedicated to snakebite awareness, prevention, and emergency response. Built with verified medical data from WHO, CDC, and KEMRI. It bridges the gap between field responders, hospitals, and the public through a unified, secure system. This project is in alignment with SDG 3 that promotes healthy lives and well being for all.
 
 ### Mission
 To save lives by combining verified medical data, artificial intelligence, and community education to reduce snakebite mortality and disability in Sub-Saharan Africa.
