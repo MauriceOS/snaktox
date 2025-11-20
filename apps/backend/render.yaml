@@ -8,7 +8,7 @@ services:
     plan: starter
     region: oregon # or frankfurt, singapore
     buildCommand: npm install --include=dev && npx prisma generate --schema=../prisma/schema.prisma && npm run build
-    startCommand: npx prisma db push --schema=../prisma/schema.prisma --skip-generate && npm run start:prod
+    startCommand: npx prisma db push --schema=../prisma/schema.prisma --skip-generate && node dist/src/main
     envVars:
       - key: NODE_ENV
         value: production
