@@ -131,7 +131,8 @@ prisma/migrations/
 *.model
 *.pkl
 *.h5
-models/
+# Only ignore model files, not model directories with Python code
+# models/  # Commented out - too broad, ignores app/models/ Python files
 
 # Test artifacts
 test-results/
