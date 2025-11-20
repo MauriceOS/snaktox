@@ -7,13 +7,8 @@ services:
     env: node
     plan: starter
     region: oregon # or frankfurt, singapore
-    buildCommand: |
-      npm install &&
-      npx prisma generate --schema=../prisma/schema.prisma &&
-      npm run build
-    startCommand: |
-      npx prisma db push --schema=../prisma/schema.prisma &&
-      npm run start:prod
+    buildCommand: npm install && npx prisma generate --schema=../prisma/schema.prisma && npx nest build
+    startCommand: npx prisma db push --schema=../prisma/schema.prisma --skip-generate && npm run start:prod
     envVars:
       - key: NODE_ENV
         value: production

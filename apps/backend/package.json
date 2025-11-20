@@ -4,7 +4,7 @@
   "description": "SnaKTox Backend API - NestJS application",
   "main": "dist/main.js",
   "scripts": {
-    "build": "nest build",
+    "build": "npx nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",

@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { HealthService } from './health.service';
 
@@ -10,16 +10,15 @@ export class HealthController {
   @Get()
   @ApiOperation({ summary: 'Health check endpoint' })
   @ApiResponse({ status: 200, description: 'Service is healthy' })
-  @ApiResponse({ status: 503, description: 'Service is unhealthy' })
   async check() {
     return this.healthService.check();
   }
 
-  @Get('ready')
-  @ApiOperation({ summary: 'Readiness check endpoint' })
-  @ApiResponse({ status: 200, description: 'Service is ready' })
-  @ApiResponse({ status: 503, description: 'Service is not ready' })
-  async ready() {
-    return this.healthService.ready();
+  @Post('seed')
+  @ApiOperation({ summary: 'Seed database with initial data (development only)' })
+  @ApiResponse({ status: 200, description: 'Database seeded successfully' })
+  @ApiResponse({ status: 500, description: 'Seeding failed' })
+  async seed() {
+    return this.healthService.seedDatabase();
   }
 }
