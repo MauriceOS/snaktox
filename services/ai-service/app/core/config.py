@@ -24,31 +24,55 @@ class Settings(BaseSettings):
     
     @field_validator('ALLOWED_HOSTS', mode='before')
     @classmethod
-    def parse_allowed_hosts(cls, v: Union[str, List[str]]) -> List[str]:
+    def parse_allowed_hosts(cls, v: Union[str, List[str], None]) -> List[str]:
         """Parse ALLOWED_HOSTS from string or list"""
+        # Handle None or empty string
+        if v is None or (isinstance(v, str) and not v.strip()):
+            return ["*"]
+        
         if isinstance(v, str):
+            v = v.strip()
             # Try to parse as JSON first
             try:
-                return json.loads(v)
-            except json.JSONDecodeError:
+                parsed = json.loads(v)
+                if isinstance(parsed, list):
+                    return parsed
+                return [str(parsed)]
+            except (json.JSONDecodeError, ValueError):
                 # If not JSON, treat as comma-separated string or single value
                 if v == "*":
                     return ["*"]
                 return [host.strip() for host in v.split(",") if host.strip()]
-        return v
+        
+        if isinstance(v, list):
+            return v
+        
+        return [str(v)]
     
     @field_validator('CORS_ORIGINS', mode='before')
     @classmethod
-    def parse_cors_origins(cls, v: Union[str, List[str]]) -> List[str]:
+    def parse_cors_origins(cls, v: Union[str, List[str], None]) -> List[str]:
         """Parse CORS_ORIGINS from string or list"""
+        # Handle None or empty string
+        if v is None or (isinstance(v, str) and not v.strip()):
+            return ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
+        
         if isinstance(v, str):
+            v = v.strip()
             # Try to parse as JSON first
             try:
-                return json.loads(v)
-            except json.JSONDecodeError:
+                parsed = json.loads(v)
+                if isinstance(parsed, list):
+                    return parsed
+                return [str(parsed)]
+            except (json.JSONDecodeError, ValueError):
                 # If not JSON, treat as comma-separated string
                 return [origin.strip() for origin in v.split(",") if origin.strip()]
-        return v
+        
+        if isinstance(v, list):
+            return v
+        
+        return [str(v)]
     
     # External API Keys
     GEMINI_API_KEY: Optional[str] = None
