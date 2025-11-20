@@ -2,14 +2,24 @@
 Configuration settings for SnaKTox AI Service
 """
 
-from pydantic_settings import BaseSettings
-from pydantic import field_validator
-from typing import List, Optional, Union
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import field_validator, model_validator
+from typing import List, Optional, Union, Any
 import os
 import json
 
 class Settings(BaseSettings):
     """Application settings"""
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        case_sensitive=True,
+        # Don't parse JSON automatically for list fields
+        json_schema_extra={
+            "ALLOWED_HOSTS": {"json_encoders": {list: lambda v: v}},
+            "CORS_ORIGINS": {"json_encoders": {list: lambda v: v}},
+        }
+    )
     
     # Service Configuration
     VERSION: str = "1.0.0"
@@ -19,60 +29,66 @@ class Settings(BaseSettings):
     
     # Security
     SECRET_KEY: str = "snaktox-ai-secret-key-change-in-production"
-    ALLOWED_HOSTS: List[str] = ["*"]
-    CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
+    ALLOWED_HOSTS: Union[str, List[str]] = ["*"]
+    CORS_ORIGINS: Union[str, List[str]] = ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
     
-    @field_validator('ALLOWED_HOSTS', mode='before')
+    @model_validator(mode='before')
     @classmethod
-    def parse_allowed_hosts(cls, v: Union[str, List[str], None]) -> List[str]:
-        """Parse ALLOWED_HOSTS from string or list"""
-        # Handle None or empty string
-        if v is None or (isinstance(v, str) and not v.strip()):
-            return ["*"]
+    def parse_list_fields(cls, data: Any) -> Any:
+        """Parse list fields from environment variables before validation"""
+        if isinstance(data, dict):
+            # Handle ALLOWED_HOSTS
+            if 'ALLOWED_HOSTS' in data:
+                v = data['ALLOWED_HOSTS']
+                if isinstance(v, str):
+                    v = v.strip()
+                    if not v:
+                        data['ALLOWED_HOSTS'] = ["*"]
+                    else:
+                        try:
+                            parsed = json.loads(v)
+                            data['ALLOWED_HOSTS'] = parsed if isinstance(parsed, list) else [str(parsed)]
+                        except (json.JSONDecodeError, ValueError):
+                            if v == "*":
+                                data['ALLOWED_HOSTS'] = ["*"]
+                            else:
+                                data['ALLOWED_HOSTS'] = [host.strip() for host in v.split(",") if host.strip()]
+            
+            # Handle CORS_ORIGINS
+            if 'CORS_ORIGINS' in data:
+                v = data['CORS_ORIGINS']
+                if isinstance(v, str):
+                    v = v.strip()
+                    if not v:
+                        data['CORS_ORIGINS'] = ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
+                    else:
+                        try:
+                            parsed = json.loads(v)
+                            data['CORS_ORIGINS'] = parsed if isinstance(parsed, list) else [str(parsed)]
+                        except (json.JSONDecodeError, ValueError):
+                            data['CORS_ORIGINS'] = [origin.strip() for origin in v.split(",") if origin.strip()]
         
+        return data
+    
+    @field_validator('ALLOWED_HOSTS', mode='after')
+    @classmethod
+    def ensure_allowed_hosts_list(cls, v: Any) -> List[str]:
+        """Ensure ALLOWED_HOSTS is a list"""
         if isinstance(v, str):
-            v = v.strip()
-            # Try to parse as JSON first
-            try:
-                parsed = json.loads(v)
-                if isinstance(parsed, list):
-                    return parsed
-                return [str(parsed)]
-            except (json.JSONDecodeError, ValueError):
-                # If not JSON, treat as comma-separated string or single value
-                if v == "*":
-                    return ["*"]
-                return [host.strip() for host in v.split(",") if host.strip()]
-        
+            return [v] if v else ["*"]
         if isinstance(v, list):
             return v
-        
-        return [str(v)]
+        return ["*"]
     
-    @field_validator('CORS_ORIGINS', mode='before')
+    @field_validator('CORS_ORIGINS', mode='after')
     @classmethod
-    def parse_cors_origins(cls, v: Union[str, List[str], None]) -> List[str]:
-        """Parse CORS_ORIGINS from string or list"""
-        # Handle None or empty string
-        if v is None or (isinstance(v, str) and not v.strip()):
-            return ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
-        
+    def ensure_cors_origins_list(cls, v: Any) -> List[str]:
+        """Ensure CORS_ORIGINS is a list"""
         if isinstance(v, str):
-            v = v.strip()
-            # Try to parse as JSON first
-            try:
-                parsed = json.loads(v)
-                if isinstance(parsed, list):
-                    return parsed
-                return [str(parsed)]
-            except (json.JSONDecodeError, ValueError):
-                # If not JSON, treat as comma-separated string
-                return [origin.strip() for origin in v.split(",") if origin.strip()]
-        
+            return [v] if v else ["http://localhost:3000"]
         if isinstance(v, list):
             return v
-        
-        return [str(v)]
+        return ["http://localhost:3000"]
     
     # External API Keys
     GEMINI_API_KEY: Optional[str] = None
@@ -88,9 +104,6 @@ class Settings(BaseSettings):
     # Logging
     LOG_LEVEL: str = "INFO"
     
-    class Config:
-        env_file = ".env"
-        case_sensitive = True
 
 # Create settings instance
 settings = Settings()
