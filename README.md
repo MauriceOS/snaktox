@@ -2,11 +2,12 @@
 
 [![CI/CD Pipeline](https://github.com/mauriceosoro/snaktox/workflows/CI/badge.svg)](https://github.com/mauriceosoro/snaktox/actions)
 [![Security Scan](https://github.com/mauriceosoro/snaktox/workflows/Security%20Scan/badge.svg)](https://github.com/mauriceosoro/snaktox/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
+[SnakTox PitchDeck](https://www.canva.com/design/DAG5I3gwMpI/u5Ux7n-80S9DYaCGNyY2NA/view?utm_content=DAG5I3gwMpI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha5be35fdd4)
 
 ## 🐍 Project Overview
 
-SnaKTox is a comprehensive, AI-powered platform dedicated to snakebite awareness, prevention, and emergency response. Built with verified medical data from WHO, CDC, and KEMRI, it bridges the gap between field responders, hospitals, and the public through a unified, secure system.
+SnaKTox is a comprehensive, AI-powered platform dedicated to snakebite awareness, prevention, and emergency response. Built with verified medical data from WHO, CDC, and KEMRI. It bridges the gap between field responders, hospitals, and the public through a unified, secure system. This project is in alignment with SDG 3 that promotes healthy lives and well being for all.
 
 ### Mission
 To save lives by combining verified medical data, artificial intelligence, and community education to reduce snakebite mortality and disability in Sub-Saharan Africa.
@@ -239,3 +240,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 © 2025 SnaKTox. All rights reserved. Medical data verified by WHO, CDC, and KEMRI.
+
+
+[def]: https://opensource.org/licenses/MIT
