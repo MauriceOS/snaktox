@@ -8,7 +8,7 @@ Since the build failed, update these settings **manually in Render Dashboard**:
 
 2. **Build Command** (replace the existing one):
    ```
-   npm install && npx prisma generate --schema=prisma/schema.prisma && cd apps/backend && npx nest build
+   npm install && npx prisma generate --schema=prisma/schema.prisma && cd apps/backend && npm install && npm run build
    ```
 
 3. **Start Command** (replace the existing one):
