@@ -56,7 +56,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
 
-  const port = configService.get('PORT', 3001);
+  const port = configService.get('PORT', process.env.PORT || 3002);
   await app.listen(port);
 
   console.log(`🚀 SnaKTox API is running on: http://localhost:${port}`);
