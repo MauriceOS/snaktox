@@ -1,0 +1,31 @@
+# Render Configuration for Backend API Only
+# Use this if deploying backend separately
+
+services:
+  - type: web
+    name: snaktox-backend
+    env: node
+    plan: starter
+    region: oregon # or frankfurt, singapore
+    buildCommand: |
+      npm install &&
+      npx prisma generate --schema=../prisma/schema.prisma &&
+      npm run build
+    startCommand: |
+      npx prisma db push --schema=../prisma/schema.prisma &&
+      npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3002
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: AI_SERVICE_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+    healthCheckPath: /api/v1/health
+

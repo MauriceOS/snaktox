@@ -1,0 +1,58 @@
+# Render Blueprint for SnaKTox
+# Deploy all services with: render deploy
+
+services:
+  # Backend API (NestJS)
+  - type: web
+    name: snaktox-backend
+    env: node
+    plan: starter # Free tier
+    buildCommand: |
+      npm install &&
+      npx prisma generate --schema=prisma/schema.prisma &&
+      cd apps/backend &&
+      npm run build
+    startCommand: |
+      cd apps/backend &&
+      npx prisma db push --schema=../../prisma/schema.prisma --skip-generate &&
+      npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3002
+      - key: DATABASE_URL
+        sync: false # Set in Render dashboard
+      - key: JWT_SECRET
+        generateValue: true
+      - key: AI_SERVICE_URL
+        sync: false # Will be set after AI service deploys
+      - key: CORS_ORIGIN
+        sync: false # Will be set after frontend deploys
+      - key: NEXT_PUBLIC_API_URL
+        sync: false # Will be set after frontend deploys
+    healthCheckPath: /api/v1/health
+
+  # AI Service (Python FastAPI)
+  - type: web
+    name: snaktox-ai-service
+    env: python
+    plan: starter # Free tier
+    buildCommand: |
+      pip install -r services/ai-service/requirements.txt
+    startCommand: |
+      cd services/ai-service &&
+      uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: DEBUG
+        value: false
+      - key: GEMINI_API_KEY
+        sync: false # Set in Render dashboard
+      - key: CORS_ORIGINS
+        sync: false # Will be set after frontend/backend deploy
+      - key: ALLOWED_HOSTS
+        value: "*"
+    healthCheckPath: /health
+

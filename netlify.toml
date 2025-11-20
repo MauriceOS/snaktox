@@ -1,0 +1,60 @@
+# Netlify Configuration for SnaKTox Frontend
+# Deploy with: netlify deploy --prod
+
+[build]
+  # Base directory for Next.js app
+  base = "apps/web"
+  # Build command for Next.js
+  command = "npm install && npm run build"
+  # Publish directory (Next.js output)
+  publish = ".next"
+  # Functions directory - Leave empty for Next.js (not needed unless using Netlify Functions)
+  # Next.js uses its own API routes, not Netlify Functions
+
+[build.environment]
+  # Node version
+  NODE_VERSION = "18"
+  # Next.js environment
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Redirects for Next.js routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Headers for static assets
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Headers for images
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Environment variables (set in Netlify dashboard)
+# NEXT_PUBLIC_API_URL - Backend API URL
+# NEXT_PUBLIC_AI_SERVICE_URL - AI Service URL (optional)
+# NEXT_PUBLIC_WS_URL - WebSocket URL (optional)
+
