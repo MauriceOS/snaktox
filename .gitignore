@@ -161,9 +161,11 @@ docs/SNAKE_IDENTIFICATION_FIX.md
 
 # Test files
 *.txt
-# Exception: Python requirements files are essential for deployment
+# Exception: Python requirements and runtime files are essential for deployment
 !requirements.txt
 !**/requirements.txt
+!runtime.txt
+!**/runtime.txt
 test-*.png
 test-*.jpg
 test-*.jpeg
