@@ -3,11 +3,13 @@ SnaKTox AI Service - FastAPI application for snake detection and chatbot
 Uses external APIs for AI capabilities instead of local ML models
 """
 
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 import uvicorn
 import structlog
+import time
 from contextlib import asynccontextmanager
 
 from app.core.config import settings
@@ -18,6 +20,45 @@ from app.core.exceptions import SnaKToxAIException
 # Setup structured logging
 setup_logging()
 logger = structlog.get_logger()
+
+# Request logging middleware
+class RequestLoggingMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        start_time = time.time()
+        method = request.method
+        url = str(request.url)
+        client_ip = request.client.host if request.client else "unknown"
+        user_agent = request.headers.get("user-agent", "unknown")
+        
+        logger.info(
+            "Incoming request",
+            method=method,
+            url=url,
+            ip=client_ip,
+            user_agent=user_agent
+        )
+        
+        try:
+            response = await call_next(request)
+            duration = time.time() - start_time
+            logger.info(
+                "Request completed",
+                method=method,
+                url=url,
+                status_code=response.status_code,
+                duration_ms=round(duration * 1000, 2)
+            )
+            return response
+        except Exception as e:
+            duration = time.time() - start_time
+            logger.error(
+                "Request failed",
+                method=method,
+                url=url,
+                error=str(e),
+                duration_ms=round(duration * 1000, 2)
+            )
+            raise
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -35,6 +76,9 @@ app = FastAPI(
     redoc_url="/redoc",
     lifespan=lifespan
 )
+
+# Request logging middleware (add first to log all requests)
+app.add_middleware(RequestLoggingMiddleware)
 
 # Security middleware
 app.add_middleware(
