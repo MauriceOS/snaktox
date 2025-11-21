@@ -20,10 +20,19 @@ async function bootstrap() {
   app.use(compression());
 
   // CORS configuration
+  const corsOrigins = configService.get('CORS_ORIGIN', 'http://localhost:3000,http://localhost:3001');
+  const allowedOrigins = typeof corsOrigins === 'string' 
+    ? corsOrigins.split(',').map(origin => origin.trim())
+    : [corsOrigins];
+  
   app.enableCors({
-    origin: configService.get('CORS_ORIGIN', 'http://localhost:3000').split(','),
+    origin: allowedOrigins,
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
   });
+  
+  console.log(`🌐 CORS enabled for origins: ${allowedOrigins.join(', ')}`);
 
   // Global logging interceptor
   app.useGlobalInterceptors(new LoggingInterceptor());

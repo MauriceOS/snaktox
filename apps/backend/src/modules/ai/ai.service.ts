@@ -330,15 +330,17 @@ export class AiService {
 
   private async logDetectionEvent(snakeDetectionDto: SnakeDetectionDto, aiResult: any, snakeSpecies: any) {
     try {
-      // Check if user exists, if not create a default analytics entry
-      let userId = snakeDetectionDto.userId;
-      if (userId) {
-        const userExists = await this.prisma.user.findUnique({
-          where: { id: userId }
-        });
-        if (!userExists) {
-          this.logger.warn(`User ${userId} not found, skipping analytics logging`);
-          return;
+      // Only use userId if it's a valid ObjectID format
+      // Frontend sends "user-001" which is not a valid MongoDB ObjectID
+      let userId = null;
+      if (snakeDetectionDto.userId) {
+        // Check if it's a valid ObjectID format (24 hex characters)
+        const objectIdRegex = /^[0-9a-fA-F]{24}$/;
+        if (objectIdRegex.test(snakeDetectionDto.userId)) {
+          userId = snakeDetectionDto.userId;
+        } else {
+          // Skip userId for non-ObjectID values (like "user-001")
+          this.logger.debug(`Skipping userId for analytics: ${snakeDetectionDto.userId} (not a valid ObjectID)`);
         }
       }
 
@@ -353,7 +355,7 @@ export class AiService {
             riskLevel: snakeSpecies?.riskLevel,
             venomType: snakeSpecies?.venomType?.name,
           },
-          userId: userId || null,
+          userId: userId,
           sessionId: snakeDetectionDto.sessionId,
         },
       });
@@ -364,6 +366,20 @@ export class AiService {
 
   private async logChatbotEvent(chatbotQueryDto: ChatbotQueryDto, aiResult: any) {
     try {
+      // Only log if userId is a valid ObjectID or null/undefined
+      // Frontend sends "user-001" which is not a valid MongoDB ObjectID
+      let userId = null;
+      if (chatbotQueryDto.userId) {
+        // Check if it's a valid ObjectID format (24 hex characters)
+        const objectIdRegex = /^[0-9a-fA-F]{24}$/;
+        if (objectIdRegex.test(chatbotQueryDto.userId)) {
+          userId = chatbotQueryDto.userId;
+        } else {
+          // Skip userId for non-ObjectID values (like "user-001")
+          this.logger.debug(`Skipping userId for analytics: ${chatbotQueryDto.userId} (not a valid ObjectID)`);
+        }
+      }
+
       await this.prisma.analyticsLog.create({
         data: {
           eventType: 'chatbot_query',
@@ -374,7 +390,7 @@ export class AiService {
             response: aiResult.response,
             confidence: aiResult.confidence,
           },
-          userId: chatbotQueryDto.userId,
+          userId: userId,
           sessionId: chatbotQueryDto.sessionId,
         },
       });
