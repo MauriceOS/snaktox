@@ -55,15 +55,17 @@ SnaKTox consists of three services:
      ```
    - **Root Directory**: Leave empty (root)
 
-4. **Environment Variables**:
+4. **Environment Variables** (⚠️ IMPORTANT - Set these correctly):
    ```
    NODE_ENV=production
    PORT=3002
    DATABASE_URL=mongodb+srv://user:pass@cluster.mongodb.net/snaktox_db
    JWT_SECRET=generate-a-strong-secret-here
    AI_SERVICE_URL=https://snaktox-ai-service.onrender.com
-   CORS_ORIGIN=https://your-netlify-app.netlify.app
+   CORS_ORIGIN=https://your-netlify-app.netlify.app,http://localhost:3000,http://localhost:3001
    ```
+   
+   **⚠️ Critical**: `CORS_ORIGIN` must include your Netlify frontend URL. Use comma-separated values for multiple origins. If CORS errors occur, check this variable first!
 
 5. **Add MongoDB Database** (if not using Atlas):
    - **New → MongoDB** in Render
