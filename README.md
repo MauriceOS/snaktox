@@ -184,6 +184,8 @@ npm run test:cov
 ### Deployment Guide
 For detailed deployment instructions, see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
 
+**💡 Keep Services Alive**: Render free tier services spin down after 15 minutes. We've configured GitHub Actions to automatically ping services every 10 minutes. See [Keep-Alive Guide](docs/DEPLOYMENT.md#-keep-alive-for-free-tier) for details.
+
 ### Environment Variables
 Required environment variables are documented in `.env.example`. Never commit actual secrets to version control.
 

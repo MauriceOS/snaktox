@@ -1,0 +1,34 @@
+# GitHub Actions workflow to keep Render services alive
+# Runs every 10 minutes to prevent free tier spin-down
+
+name: Keep Services Alive
+
+on:
+  schedule:
+    # Run every 10 minutes (cron: minute hour day month day-of-week)
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  ping-services:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
+    steps:
+      - name: Ping Backend Service
+        run: |
+          echo "🔄 Pinging Backend Service..."
+          curl -f -s -o /dev/null -w "Status: %{http_code}\n" \
+            https://snaktox-backend.onrender.com/api/v1/health || echo "⚠️ Backend ping failed"
+      
+      - name: Ping AI Service
+        run: |
+          echo "🔄 Pinging AI Service..."
+          curl -f -s -o /dev/null -w "Status: %{http_code}\n" \
+            https://snaktox-ai-service.onrender.com/health || echo "⚠️ AI Service ping failed"
+      
+      - name: Summary
+        run: |
+          echo "✅ Keep-alive check completed at $(date)"
+          echo "Services should remain active for another 15 minutes"
+

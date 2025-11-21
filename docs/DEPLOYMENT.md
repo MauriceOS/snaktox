@@ -282,16 +282,82 @@ All services auto-deploy on `git push` to main branch:
 
 ## 🚨 Keep-Alive for Free Tier
 
-Render free tier services spin down after inactivity. Use a keep-alive service:
+Render free tier services spin down after **15 minutes of inactivity**. This causes a **~30 second delay** when the first request arrives after spin-down.
 
-1. **UptimeRobot** (https://uptimerobot.com)
-   - Add monitor for your services
-   - Set interval to 5 minutes
-   - Free tier: 50 monitors
+### ✅ Solution 1: GitHub Actions (Recommended - Free & Automatic)
 
-2. **cron-job.org** (https://cron-job.org)
-   - Create cron job to ping your services
-   - Set to run every 5 minutes
+**Best option** - No external services needed, runs automatically.
+
+1. **The workflow is already configured** in `.github/workflows/keep-alive.yml`
+2. **Enable GitHub Actions** (if not already enabled):
+   - Go to your GitHub repository
+   - Click **Settings** → **Actions** → **General**
+   - Under "Workflow permissions", select **Read and write permissions**
+   - Check **Allow GitHub Actions to create and approve pull requests**
+   - Save changes
+3. **Enable scheduled workflows**:
+   - Go to **Settings** → **Actions** → **General**
+   - Under "Workflows", ensure **Allow all actions and reusable workflows** is selected
+4. **Verify it's working**:
+   - Go to **Actions** tab in your repository
+   - You should see "Keep Services Alive" workflow running every 10 minutes
+   - Click on a run to see the ping results
+
+**Manual trigger**: You can also manually trigger it from the Actions tab → "Keep Services Alive" → "Run workflow"
+
+### ✅ Solution 2: UptimeRobot (External Service)
+
+1. **Sign up**: https://uptimerobot.com (free tier available)
+2. **Add Monitor**:
+   - Click **+ Add New Monitor**
+   - **Monitor Type**: HTTP(s)
+   - **Friendly Name**: `SnaKTox Backend`
+   - **URL**: `https://snaktox-backend.onrender.com/api/v1/health`
+   - **Monitoring Interval**: 5 minutes
+   - Click **Create Monitor**
+3. **Repeat for AI Service**:
+   - Add another monitor for `https://snaktox-ai-service.onrender.com/health`
+4. **Free tier limits**: 50 monitors, 5-minute intervals
+
+### ✅ Solution 3: cron-job.org (External Service)
+
+1. **Sign up**: https://cron-job.org (free tier available)
+2. **Create Cron Job**:
+   - Click **Create cronjob**
+   - **Title**: `SnaKTox Keep-Alive`
+   - **Address**: `https://snaktox-backend.onrender.com/api/v1/health`
+   - **Schedule**: Every 5 minutes (`*/5 * * * *`)
+   - Click **Create cronjob**
+3. **Add second job** for AI service:
+   - Address: `https://snaktox-ai-service.onrender.com/health`
+   - Same schedule
+
+### ✅ Solution 4: Local Script (For Testing)
+
+Use the provided script `scripts/keep-alive.sh`:
+
+```bash
+# Make executable
+chmod +x scripts/keep-alive.sh
+
+# Run manually
+./scripts/keep-alive.sh
+
+# Or set up local cron (macOS/Linux)
+crontab -e
+# Add: */10 * * * * /path/to/snaktox/scripts/keep-alive.sh
+```
+
+### 📊 Comparison
+
+| Solution | Cost | Setup | Reliability | Recommended |
+|----------|------|-------|-------------|-------------|
+| GitHub Actions | Free | Automatic | ⭐⭐⭐⭐⭐ | ✅ Yes |
+| UptimeRobot | Free | 2 min | ⭐⭐⭐⭐ | ✅ Yes |
+| cron-job.org | Free | 2 min | ⭐⭐⭐⭐ | ✅ Yes |
+| Local Script | Free | Manual | ⭐⭐ | ❌ No |
+
+**Recommendation**: Use **GitHub Actions** (Solution 1) - it's already configured and requires no external services!
 
 ## 📝 Production Checklist
 
