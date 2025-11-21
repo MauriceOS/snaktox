@@ -94,8 +94,8 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: Optional[str] = None
     
     # API Configuration
-    GEMINI_MODEL: str = "gemini-1.5-pro"
-    GEMINI_VISION_MODEL: str = "gemini-1.5-pro"
+    GEMINI_MODEL: str = "gemini-pro"  # Updated to use stable model name
+    GEMINI_VISION_MODEL: str = "gemini-pro-vision"  # Updated to use stable model name
     VISION_CONFIDENCE_THRESHOLD: float = 0.7
     
     # Rate Limiting
