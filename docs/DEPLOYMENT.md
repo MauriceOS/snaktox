@@ -2,6 +2,8 @@
 
 Complete guide for deploying SnaKTox to Render, Netlify, and free AI service hosting.
 
+> ⚠️ **Security Note**: This guide uses placeholder values. Never commit actual secrets, API keys, or database credentials to version control. Always use environment variables in your hosting platform.
+
 ## 📋 Deployment Overview
 
 SnaKTox consists of three services:
@@ -23,14 +25,16 @@ SnaKTox consists of three services:
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
 
-5. **Environment Variables**:
+5. **Environment Variables** (⚠️ Replace placeholders with your actual values):
    ```
    PORT=8000
    DEBUG=false
-   GEMINI_API_KEY=your-gemini-api-key
+   GEMINI_API_KEY=your-gemini-api-key-here
    CORS_ORIGINS=https://your-netlify-app.netlify.app,https://your-backend.onrender.com
    ALLOWED_HOSTS=*
    ```
+   
+   **⚠️ Security**: Replace `your-gemini-api-key-here` with your actual Google Gemini API key. Get it from https://makersuite.google.com/app/apikey
 
 6. **Deploy** and note the service URL (e.g., `https://snaktox-ai-service.onrender.com`)
 
@@ -59,13 +63,18 @@ SnaKTox consists of three services:
    ```
    NODE_ENV=production
    PORT=3002
-   DATABASE_URL=mongodb+srv://user:pass@cluster.mongodb.net/snaktox_db
+   DATABASE_URL=mongodb+srv://username:password@cluster.mongodb.net/snaktox_db?retryWrites=true&w=majority
    JWT_SECRET=generate-a-strong-secret-here
    AI_SERVICE_URL=https://snaktox-ai-service.onrender.com
    CORS_ORIGIN=https://your-netlify-app.netlify.app,http://localhost:3000,http://localhost:3001
    ```
    
-   **⚠️ Critical**: `CORS_ORIGIN` must include your Netlify frontend URL. Use comma-separated values for multiple origins. If CORS errors occur, check this variable first!
+   **⚠️ Critical**: 
+   - `CORS_ORIGIN` must include your Netlify frontend URL. Use comma-separated values for multiple origins.
+   - Replace `your-netlify-app.netlify.app` with your actual Netlify site URL.
+   - Replace `username:password` in `DATABASE_URL` with your actual MongoDB credentials.
+   - Replace `generate-a-strong-secret-here` with a strong random string for JWT tokens.
+   - If CORS errors occur, check `CORS_ORIGIN` first!
 
 5. **Add MongoDB Database** (if not using Atlas):
    - **New → MongoDB** in Render
@@ -147,8 +156,10 @@ services:
 2. **Create cluster** (Free tier available)
 3. **Get connection string**:
    ```
-   mongodb+srv://username:password@cluster.mongodb.net/snaktox_db
+   mongodb+srv://username:password@cluster.mongodb.net/snaktox_db?retryWrites=true&w=majority
    ```
+   
+   **⚠️ Security**: Replace `username` and `password` with your actual MongoDB Atlas credentials. Never commit this connection string to version control.
 4. **Add to Render environment variables**
 
 ### Option 2: Render MongoDB
