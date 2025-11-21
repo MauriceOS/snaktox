@@ -19,9 +19,9 @@ SnaKTox consists of three services:
 4. **Configure**:
    - **Name**: `snaktox-ai-service`
    - **Environment**: `Python 3`
-   - **Build Command**: `cd services/ai-service && pip install -r requirements.txt`
-   - **Start Command**: `cd services/ai-service && uvicorn main:app --host 0.0.0.0 --port $PORT`
    - **Root Directory**: `services/ai-service`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
 
 5. **Environment Variables**:
    ```
@@ -43,16 +43,15 @@ SnaKTox consists of three services:
    - **Environment**: `Node`
    - **Build Command**: 
      ```bash
-     npm install &&
-     npx prisma generate --schema=prisma/schema.prisma &&
+     npm install --include=dev &&
      cd apps/backend &&
-     npm run build
+     ./node_modules/.bin/nest build
      ```
    - **Start Command**: 
      ```bash
      cd apps/backend &&
-     npx prisma db push --schema=../../prisma/schema.prisma &&
-     npm run start:prod
+     npx prisma db push --schema=../../prisma/schema.prisma --skip-generate &&
+     node dist/src/main
      ```
    - **Root Directory**: Leave empty (root)
 
@@ -179,17 +178,15 @@ services:
 
 ### 1. Seed Database
 
-After backend deploys, run database seed:
+After backend deploys, seed the database using the HTTP endpoint (no shell access needed):
 
+**Option 1: HTTP Endpoint (Recommended for Free Tier)**
 ```bash
-# Via Render Shell or locally
-cd apps/backend
-npx prisma db push --schema=../../prisma/schema.prisma
-npm run db:seed
+curl -X POST https://snaktox-backend.onrender.com/api/v1/health/seed
 ```
 
-Or use Render's Shell feature:
-1. Go to your backend service
+**Option 2: Render Shell (If Available)**
+1. Go to your backend service in Render
 2. Click **Shell**
 3. Run:
    ```bash

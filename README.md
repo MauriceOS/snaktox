@@ -168,11 +168,21 @@ npm run test:cov
 
 ## 🚀 Deployment
 
+### 🌐 Live Services
+
+- **🌍 Frontend**: [https://lucent-pasca-161c73.netlify.app](https://lucent-pasca-161c73.netlify.app)
+- **🔧 Backend API**: [https://snaktox-backend.onrender.com](https://snaktox-backend.onrender.com)
+- **🤖 AI Service**: [https://snaktox-ai-service.onrender.com](https://snaktox-ai-service.onrender.com)
+- **📚 API Documentation**: [https://snaktox-backend.onrender.com/api/docs](https://snaktox-backend.onrender.com/api/docs)
+
 ### CI/CD Pipeline
 - **Lint & Test**: ESLint, Prettier, Jest
 - **Security Scan**: TruffleHog, npm audit, Snyk
 - **Build & Test**: Docker image build and security scan
-- **Deploy**: Automated deployment to Render/Railway
+- **Deploy**: Automated deployment to Render (Backend + AI) and Netlify (Frontend)
+
+### Deployment Guide
+For detailed deployment instructions, see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
 
 ### Environment Variables
 Required environment variables are documented in `.env.example`. Never commit actual secrets to version control.
